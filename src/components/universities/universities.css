@@ -182,37 +182,6 @@
     0 0 80px rgba(10, 61, 145, 0.06);
 }
 
-/* Arc Legend */
-.uni-arc-legend {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #475569;
-}
-
-.uni-arc-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.uni-arc-line {
-  width: 24px;
-  height: 3px;
-  border-radius: 2px;
-}
-
-.uni-arc-line--china {
-  background: linear-gradient(90deg, #D4AF37, #e8c84a);
-}
-
-.uni-arc-line--germany {
-  background: linear-gradient(90deg, #4d8bf7, #7aafff);
-}
-
 /* Right: Content Side */
 .uni-content-side {
   flex: 1 1 50%;

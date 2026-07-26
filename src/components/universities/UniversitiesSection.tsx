@@ -2,45 +2,17 @@
 
 import React from 'react';
 import { oswald } from "@/lib/fonts";
-import { Globe } from "@/components/ui/cobe-globe";
+import { GlobePolaroids } from "@/components/ui/cobe-globe";
 import { GraduationCap, GlobeHemisphereWest, Airplane, BookOpen, Flag, Buildings } from '@phosphor-icons/react';
 import './universities.css';
 
-const AFRICA_LAGOS: [number, number] = [6.5244, 3.3792];
-const CHINA_BEIJING: [number, number] = [39.9042, 116.4074];
-const GERMANY_BERLIN: [number, number] = [52.52, 13.405];
-const AFRICA_NAIROBI: [number, number] = [-1.2921, 36.8219];
-const AFRICA_ADDIS: [number, number] = [9.032, 38.7469];
-const AFRICA_CAIRO: [number, number] = [30.0444, 31.2357];
-
-const GLOBE_MARKERS = [
-  { id: 'lagos', location: AFRICA_LAGOS, size: 0.03, label: 'Lagos' },
-  { id: 'nairobi', location: AFRICA_NAIROBI, size: 0.028, label: 'Nairobi' },
-  { id: 'addis', location: AFRICA_ADDIS, size: 0.026, label: 'Addis Ababa' },
-  { id: 'cairo', location: AFRICA_CAIRO, size: 0.028, label: 'Cairo' },
-  { id: 'beijing', location: CHINA_BEIJING, size: 0.03, label: 'Beijing' },
-  { id: 'berlin', location: GERMANY_BERLIN, size: 0.03, label: 'Berlin' },
-];
-
-const GLOBE_ARCS = [
-  {
-    id: 'africa-china',
-    from: AFRICA_LAGOS,
-    to: CHINA_BEIJING,
-    color: [0.83, 0.68, 0.22] as [number, number, number],
-  },
-  {
-    id: 'africa-germany',
-    from: AFRICA_NAIROBI,
-    to: GERMANY_BERLIN,
-    color: [0.3, 0.6, 0.9] as [number, number, number],
-  },
-  {
-    id: 'africa-china-2',
-    from: AFRICA_CAIRO,
-    to: CHINA_BEIJING,
-    color: [0.83, 0.68, 0.22] as [number, number, number],
-  },
+const GLOBE_POLAROIDS = [
+  { id: 'polaroid-lagos', location: [6.52, 3.38] as [number, number], image: 'https://images.unsplash.com/photo-1579003593419-98f949b9398f?w=120&h=120&fit=crop', caption: 'Lagos', rotate: -4 },
+  { id: 'polaroid-nairobi', location: [-1.29, 36.82] as [number, number], image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=120&h=120&fit=crop', caption: 'Nairobi', rotate: 3 },
+  { id: 'polaroid-cairo', location: [30.04, 31.24] as [number, number], image: 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=120&h=120&fit=crop', caption: 'Cairo', rotate: -5 },
+  { id: 'polaroid-beijing', location: [39.90, 116.41] as [number, number], image: 'https://images.unsplash.com/photo-1534256958596-7b2270dbb523?w=120&h=120&fit=crop', caption: 'Beijing', rotate: 6 },
+  { id: 'polaroid-berlin', location: [52.52, 13.41] as [number, number], image: 'https://images.unsplash.com/photo-1560969184-10fe8719e047?w=120&h=120&fit=crop', caption: 'Berlin', rotate: -3 },
+  { id: 'polaroid-shanghai', location: [31.23, 121.47] as [number, number], image: 'https://images.unsplash.com/photo-1537531383490-cc03e6f7f0e7?w=120&h=120&fit=crop', caption: 'Shanghai', rotate: 4 },
 ];
 
 const STATS_DATA = [
@@ -108,35 +80,12 @@ export function UniversitiesSection() {
           {/* Left: Globe */}
           <div className="uni-globe-side" data-animate-pop>
             <div className="uni-globe-wrap">
-              <Globe
-                markers={GLOBE_MARKERS}
-                arcs={GLOBE_ARCS}
-                markerColor={[0.83, 0.68, 0.22]}
-                arcColor={[0.3, 0.6, 0.9]}
-                baseColor={[0.02, 0.06, 0.15]}
-                glowColor={[0.02, 0.06, 0.16]}
-                dark={0.85}
-                mapBrightness={1.6}
-                markerSize={0.04}
-                markerElevation={0.015}
-                arcWidth={2.2}
-                arcHeight={1.8}
-                diffuse={2.0}
-                autoRotate
-                rotationSpeed={0.004}
+              <GlobePolaroids
+                markers={GLOBE_POLAROIDS}
+                speed={0.004}
               />
             </div>
 
-            <div className="uni-arc-legend">
-              <div className="uni-arc-item">
-                <span className="uni-arc-line uni-arc-line--china" />
-                <span>Africa &rarr; China</span>
-              </div>
-              <div className="uni-arc-item">
-                <span className="uni-arc-line uni-arc-line--germany" />
-                <span>Africa &rarr; Germany</span>
-              </div>
-            </div>
           </div>
 
           {/* Right: Content */}
