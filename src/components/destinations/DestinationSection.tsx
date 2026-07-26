@@ -67,40 +67,43 @@ const FeatureTagsCard = () => (
 );
 
 const MainFeatureCard = () => (
-  <Card className="relative h-full w-full overflow-hidden">
+  <Card className="relative flex h-full min-h-[400px] w-full overflow-hidden">
     <div className="absolute top-6 left-6 z-10 rounded-lg bg-white/50 p-2 backdrop-blur-sm">
-      <p className="text-xl font-bold tracking-tighter">Doc Hands.</p>
+      <p className="text-xl font-bold tracking-tighter">Study Abroad.</p>
     </div>
     <img
-      src="https://plus.unsplash.com/premium_photo-1705883267055-b4000d390bae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fFNtaWxpbmclMjB3b21hbiUyMGluJTIwYSUyMHBpbmslMjBqYWNrZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=900"
-      alt="Smiling woman in a pink traditional dress"
+      src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&auto=format"
+      alt="Students on graduation day"
       className="h-full w-full object-cover"
+      crossOrigin="anonymous"
     />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
   </Card>
 );
 
 const StatCard = () => (
-  <Card className="flex h-full flex-col justify-between bg-lime-100/80 p-6 dark:bg-lime-950/80">
+  <Card className="flex h-full min-h-[200px] flex-col justify-between bg-lime-100/80 p-6 dark:bg-lime-950/80">
     <HeartPulse className="h-8 w-8 text-lime-700 dark:text-lime-300" />
     <div>
       <p className="text-6xl font-bold text-lime-900 dark:text-lime-100">95%</p>
       <p className="text-sm text-lime-800 dark:text-lime-200">
-        Clinical and Medical care satisfaction with DocHands Platforms.
+        Student satisfaction rate with our global partners.
       </p>
     </div>
   </Card>
 );
 
 const SecondaryFeatureCard = () => (
-  <Card className="relative h-full w-full overflow-hidden">
+  <Card className="relative flex h-full min-h-[200px] w-full overflow-hidden">
     <img
-      src="https://images.unsplash.com/photo-1667133295352-ef4c83620e8e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGRlbnRpc3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=900"
-      alt="Close-up of a smiling woman"
-      className="h-60 w-full object-cover"
+      src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format"
+      alt="Students studying together"
+      className="h-full w-full object-cover"
+      crossOrigin="anonymous"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-blue-500/30 via-transparent to-transparent dark:from-blue-900/40" />
     <p className="absolute bottom-6 left-6 z-10 max-w-[80%] text-xl font-bold text-white [text-shadow:_0_1px_4px_rgb(0_0_0_/_30%)]">
-      Small changes and big impact on the way!
+      Discover your path to global education.
     </p>
   </Card>
 );
@@ -114,13 +117,13 @@ const JourneyCard = () => (
     <div className="absolute -right-4 -bottom-4 h-48 w-48">
       <div className="absolute top-8 left-20">
         <Avatar>
-          <AvatarImage src="https://api.uifaces.co/our-content/faces/49.jpg" />
+          <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" />
           <AvatarFallback>A</AvatarFallback>
         </Avatar>
       </div>
       <div className="absolute top-24 left-8">
         <Avatar>
-          <AvatarImage src="https://api.uifaces.co/our-content/faces/14.jpg" />
+          <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" />
           <AvatarFallback>B</AvatarFallback>
         </Avatar>
       </div>
