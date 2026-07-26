@@ -28,14 +28,14 @@ const IntegrationsCard = () => (
       </CardDescription>
     </CardHeader>
     <CardContent className="flex items-center justify-center gap-4">
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
-        <Calendar className="h-6 w-6 text-muted-foreground" />
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-neutral-100)]">
+        <Calendar className="h-6 w-6 text-[var(--color-neutral-500)]" />
       </div>
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
-        <MessageCircle className="h-6 w-6 text-muted-foreground" />
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-neutral-100)]">
+        <MessageCircle className="h-6 w-6 text-[var(--color-neutral-500)]" />
       </div>
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
-        <Zap className="h-6 w-6 text-muted-foreground" />
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-neutral-100)]">
+        <Zap className="h-6 w-6 text-[var(--color-neutral-500)]" />
       </div>
     </CardContent>
   </Card>
@@ -68,7 +68,7 @@ const FeatureTagsCard = () => (
 
 const MainFeatureCard = () => (
   <Card className="relative h-full w-full overflow-hidden">
-    <div className="absolute top-6 left-6 z-10 rounded-lg bg-background/50 p-2 backdrop-blur-sm">
+    <div className="absolute top-6 left-6 z-10 rounded-lg bg-white/50 p-2 backdrop-blur-sm">
       <p className="text-xl font-bold tracking-tighter">Doc Hands.</p>
     </div>
     <img
@@ -130,16 +130,16 @@ const JourneyCard = () => (
 
 export function DestinationSection() {
   return (
-    <section className="relative min-h-screen w-full bg-background py-16" aria-label="Destinations">
+    <section className="relative min-h-screen w-full bg-[var(--color-white)] py-16" aria-label="Destinations">
       <div className="mx-auto max-w-7xl px-4 md:px-10">
         <div className="mb-8 text-center">
-          <span className="inline-block text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+          <span className="inline-block text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
             06 / WORLD STUDY DESTINATIONS
           </span>
           <h2 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
             DISCOVER YOUR GLOBAL CAMPUS
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-[var(--color-neutral-500)]">
             Explore tuition costs, post-study visa pathways, and top accredited universities worldwide.
           </p>
         </div>

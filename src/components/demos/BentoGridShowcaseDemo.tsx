@@ -26,14 +26,14 @@ const IntegrationsCard = () => (
       </CardDescription>
     </CardHeader>
     <CardContent className="flex items-center justify-center gap-4">
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
-        <Calendar className="h-6 w-6 text-muted-foreground" />
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-neutral-100)]">
+        <Calendar className="h-6 w-6 text-[var(--color-neutral-500)]" />
       </div>
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
-        <MessageCircle className="h-6 w-6 text-muted-foreground" />
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-neutral-100)]">
+        <MessageCircle className="h-6 w-6 text-[var(--color-neutral-500)]" />
       </div>
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
-        <Zap className="h-6 w-6 text-muted-foreground" />
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-neutral-100)]">
+        <Zap className="h-6 w-6 text-[var(--color-neutral-500)]" />
       </div>
     </CardContent>
   </Card>
@@ -66,7 +66,7 @@ const FeatureTagsCard = () => (
 
 const MainFeatureCard = () => (
   <Card className="relative h-full w-full overflow-hidden">
-    <div className="absolute top-6 left-6 z-10 rounded-lg bg-background/50 p-2 backdrop-blur-sm">
+    <div className="absolute top-6 left-6 z-10 rounded-lg bg-white/50 p-2 backdrop-blur-sm">
       <p className="text-xl font-bold tracking-tighter">Doc Hands.</p>
     </div>
     <img
@@ -133,7 +133,7 @@ export default function BentoGridShowcaseDemo() {
         <h1 className="text-center text-4xl font-bold tracking-tight">
           Virtual Medical Care
         </h1>
-        <p className="text-center text-lg text-muted-foreground">
+        <p className="text-center text-lg text-[var(--color-neutral-500)]">
           Full range of solutions to effectively enhance your virtual care.
         </p>
       </div>
