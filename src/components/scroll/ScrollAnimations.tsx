@@ -33,7 +33,7 @@ export function ScrollAnimations() {
               y: 0,
               scale: 1,
               opacity: 1,
-              duration: 1.1,
+              duration: 1.4,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: el,
@@ -55,7 +55,7 @@ export function ScrollAnimations() {
               y: 0,
               opacity: 1,
               clipPath: "inset(0 0 0% 0)",
-              duration: 1.2,
+              duration: 1.6,
               ease: "power4.out",
               scrollTrigger: {
                 trigger: el,
@@ -81,8 +81,8 @@ export function ScrollAnimations() {
               opacity: 1,
               scale: 1,
               rotateX: 0,
-              duration: 0.85,
-              stagger: 0.08,
+              duration: 1.2,
+              stagger: 0.1,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: grid,
@@ -120,7 +120,7 @@ export function ScrollAnimations() {
             {
               opacity: 1,
               y: 0,
-              duration: 0.9,
+              duration: 1.2,
               ease: "power2.out",
               scrollTrigger: {
                 trigger: el,
@@ -141,7 +141,7 @@ export function ScrollAnimations() {
             {
               scale: 1,
               opacity: 1,
-              duration: 0.55,
+              duration: 0.75,
               ease: "back.out(1.7)",
               scrollTrigger: {
                 trigger: el,
@@ -169,8 +169,8 @@ export function ScrollAnimations() {
               {
                 scale: 1,
                 opacity: 1,
-                duration: 0.5,
-                stagger: 0.07,
+                duration: 0.7,
+                stagger: 0.09,
                 ease: "back.out(1.7)",
                 scrollTrigger: {
                   trigger: group,
@@ -191,7 +191,7 @@ export function ScrollAnimations() {
             {
               scale: 1,
               opacity: 1,
-              duration: 1.0,
+              duration: 1.3,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: el,
@@ -212,7 +212,7 @@ export function ScrollAnimations() {
             {
               x: 0,
               opacity: 1,
-              duration: 0.85,
+              duration: 1.1,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: el,
@@ -233,7 +233,7 @@ export function ScrollAnimations() {
             {
               x: 0,
               opacity: 1,
-              duration: 0.85,
+              duration: 1.1,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: el,
@@ -255,7 +255,7 @@ export function ScrollAnimations() {
               rotate: 0,
               opacity: 1,
               scale: 1,
-              duration: 0.75,
+              duration: 1.0,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: el,
@@ -277,7 +277,7 @@ export function ScrollAnimations() {
               filter: "blur(0px)",
               opacity: 1,
               y: 0,
-              duration: 1.2,
+              duration: 1.5,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: el,
@@ -306,7 +306,7 @@ export function ScrollAnimations() {
               {
                 y: 0,
                 opacity: 1,
-                duration: 0.6,
+                duration: 0.8,
                 stagger: delay,
                 ease: "power2.out",
                 scrollTrigger: {
@@ -328,7 +328,7 @@ export function ScrollAnimations() {
             {
               clipPath: "inset(0 0% 0 0)",
               opacity: 1,
-              duration: 1.0,
+              duration: 1.3,
               ease: "power3.inOut",
               scrollTrigger: {
                 trigger: el,
@@ -377,7 +377,7 @@ export function ScrollAnimations() {
             {
               clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
               opacity: 1,
-              duration: 1.1,
+              duration: 1.4,
               ease: "power3.inOut",
               scrollTrigger: {
                 trigger: el,
@@ -398,7 +398,7 @@ export function ScrollAnimations() {
             {
               y: 0,
               opacity: 1,
-              duration: 1.4,
+              duration: 1.7,
               ease: "power1.out",
               scrollTrigger: {
                 trigger: el,
