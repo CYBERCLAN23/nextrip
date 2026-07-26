@@ -1,152 +1,157 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import { oswald } from "@/lib/fonts";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { destinations } from './DestinationData';
+import * as React from "react";
 import {
-  GraduationCap, CurrencyDollar, MapPin,
-  Compass, Sun, BookOpen, Buildings, Globe
-} from '@phosphor-icons/react';
-import './destinations.css';
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
+import { BentoGridShowcase } from "@/components/ui/bento-grid";
+import {
+  Calendar,
+  HeartPulse,
+  MessageCircle,
+  Plus,
+  Zap,
+} from "lucide-react";
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+const IntegrationsCard = () => (
+  <Card className="h-full">
+    <CardHeader>
+      <CardTitle className="text-lg">Integrations</CardTitle>
+      <CardDescription>
+        Easily integrations of third party apps.
+      </CardDescription>
+    </CardHeader>
+    <CardContent className="flex items-center justify-center gap-4">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+        <Calendar className="h-6 w-6 text-muted-foreground" />
+      </div>
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+        <MessageCircle className="h-6 w-6 text-muted-foreground" />
+      </div>
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+        <Zap className="h-6 w-6 text-muted-foreground" />
+      </div>
+    </CardContent>
+  </Card>
+);
 
-const DESTINATION_ICONS = [Compass, Sun, Buildings, BookOpen, Globe, GraduationCap];
+const FeatureTagsCard = () => (
+  <Card className="h-full">
+    <CardContent className="flex h-full flex-col justify-center gap-3 p-6">
+      <Badge
+        variant="outline"
+        className="w-fit items-center gap-1.5 border-purple-300 py-1.5 px-3 text-purple-700 dark:border-purple-700 dark:text-purple-300"
+      >
+        Innovative <Plus className="h-3 w-3" />
+      </Badge>
+      <Badge
+        variant="secondary"
+        className="w-fit items-center gap-1.5 bg-purple-100 py-1.5 px-3 text-purple-700 hover:bg-purple-200 dark:bg-purple-900/50 dark:text-purple-300 dark:hover:bg-purple-900/80"
+      >
+        Revolutionary
+      </Badge>
+      <Badge
+        variant="outline"
+        className="w-fit items-center gap-1.5 border-purple-300 py-1.5 px-3 text-purple-700 dark:border-purple-700 dark:text-purple-300"
+      >
+        Empowering <Plus className="h-3 w-3" />
+      </Badge>
+    </CardContent>
+  </Card>
+);
 
-const DiamondTerminal = ({ className }: { className: string }) => (
-  <svg className={`dest-terminal ${className}`} width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z" fill="currentColor" />
-  </svg>
+const MainFeatureCard = () => (
+  <Card className="relative h-full w-full overflow-hidden">
+    <div className="absolute top-6 left-6 z-10 rounded-lg bg-background/50 p-2 backdrop-blur-sm">
+      <p className="text-xl font-bold tracking-tighter">Doc Hands.</p>
+    </div>
+    <img
+      src="https://plus.unsplash.com/premium_photo-1705883267055-b4000d390bae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fFNtaWxpbmclMjB3b21hbiUyMGluJTIwYSUyMHBpbmslMjBqYWNrZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=900"
+      alt="Smiling woman in a pink traditional dress"
+      className="h-full w-full object-cover"
+    />
+  </Card>
+);
+
+const StatCard = () => (
+  <Card className="flex h-full flex-col justify-between bg-lime-100/80 p-6 dark:bg-lime-950/80">
+    <HeartPulse className="h-8 w-8 text-lime-700 dark:text-lime-300" />
+    <div>
+      <p className="text-6xl font-bold text-lime-900 dark:text-lime-100">95%</p>
+      <p className="text-sm text-lime-800 dark:text-lime-200">
+        Clinical and Medical care satisfaction with DocHands Platforms.
+      </p>
+    </div>
+  </Card>
+);
+
+const SecondaryFeatureCard = () => (
+  <Card className="relative h-full w-full overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1667133295352-ef4c83620e8e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGRlbnRpc3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=900"
+      alt="Close-up of a smiling woman"
+      className="h-60 w-full object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-blue-500/30 via-transparent to-transparent dark:from-blue-900/40" />
+    <p className="absolute bottom-6 left-6 z-10 max-w-[80%] text-xl font-bold text-white [text-shadow:_0_1px_4px_rgb(0_0_0_/_30%)]">
+      Small changes and big impact on the way!
+    </p>
+  </Card>
+);
+
+const JourneyCard = () => (
+  <Card className="relative h-full w-full overflow-hidden p-6">
+    <CardTitle className="text-lg">Weekly Journey</CardTitle>
+    <CardDescription>
+      Workflow and Patient journey mapping within 02-03 Weeks.
+    </CardDescription>
+    <div className="absolute -right-4 -bottom-4 h-48 w-48">
+      <div className="absolute top-8 left-20">
+        <Avatar>
+          <AvatarImage src="https://api.uifaces.co/our-content/faces/49.jpg" />
+          <AvatarFallback>A</AvatarFallback>
+        </Avatar>
+      </div>
+      <div className="absolute top-24 left-8">
+        <Avatar>
+          <AvatarImage src="https://api.uifaces.co/our-content/faces/14.jpg" />
+          <AvatarFallback>B</AvatarFallback>
+        </Avatar>
+      </div>
+    </div>
+  </Card>
 );
 
 export function DestinationSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const scrollTweenRef = useRef<ScrollTrigger | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced || !sectionRef.current) return;
-
-    const mm = gsap.matchMedia();
-    mm.add('(min-width: 769px)', () => {
-      scrollTweenRef.current = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: 'top top',
-        end: `+=${destinations.length * 500}`,
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.6,
-        onUpdate: (self) => {
-          const rawIdx = Math.floor(self.progress * destinations.length);
-          setActiveIndex(Math.min(destinations.length - 1, Math.max(0, rawIdx)));
-        },
-      });
-    });
-
-    return () => mm.revert();
-  }, []);
-
-  const handleCardClick = (index: number) => {
-    setActiveIndex(index);
-    if (sectionRef.current && typeof window !== 'undefined' && window.innerWidth > 768 && scrollTweenRef.current) {
-      const st = scrollTweenRef.current;
-      const progressPerStep = 1 / destinations.length;
-      const targetProgress = index * progressPerStep + progressPerStep / 2;
-      const targetScroll = st.start + targetProgress * (st.end - st.start);
-      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section
-      ref={sectionRef}
-      className="dest-section relative bg-[#0B111A] text-white min-h-screen overflow-hidden"
-      aria-label="Destinations"
-    >
-      {/* Background Grain & Glow */}
-      <div className="dest-bg-overlay" />
-
-      {/* Top Crosshair Grid Line */}
-      <div className="dest-crosshair-top">
-        <DiamondTerminal className="dest-terminal--left" />
-        <div className="dest-line-h" />
-        <DiamondTerminal className="dest-terminal--right" />
-      </div>
-
-      {/* Section Header */}
-      <header className="dest-header relative z-10 text-center max-w-4xl mx-auto pt-16 px-6">
-        <span className={`dest-eyebrow ${oswald.className}`} data-animate-slide-l>
-          06 / WORLD STUDY DESTINATIONS
-        </span>
-        <h2 className={`dest-heading ${oswald.className}`} data-animate-heading>
-          DISCOVER YOUR GLOBAL CAMPUS HUB
-        </h2>
-        <div className="dest-header-divider" data-animate-clip />
-        <p className="dest-subheading" data-animate-blur>
-          Explore tuition costs, post-study visa pathways, and top accredited universities worldwide.
-        </p>
-      </header>
-
-      {/* Interactive Selector */}
-      <div className="dest-selector-wrap relative z-10 flex-1 flex items-center px-6 pb-16">
-        <div className="dest-selector-track">
-          {destinations.map((country, index) => {
-            const isActive = index === activeIndex;
-            const IconComp = DESTINATION_ICONS[index] || Compass;
-
-            return (
-              <div
-                key={country.id}
-                className={`dest-card ${isActive ? 'active' : ''}`}
-                onClick={() => handleCardClick(index)}
-              >
-                <Image
-                  src={country.image}
-                  alt={country.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 900px"
-                  className="dest-card-bg"
-                />
-                <div className="dest-card-shadow" />
-
-                {/* Icon */}
-                <div className="dest-card-icon">
-                  <IconComp size={24} weight="bold" />
-                </div>
-
-                {/* Active Info */}
-                <div className="dest-card-info">
-                  <h3 className={`dest-card-name ${oswald.className}`}>{country.name}</h3>
-                  <p className="dest-card-desc">{country.description}</p>
-                  <div className="dest-card-meta">
-                    <span><GraduationCap size={14} weight="bold" /> {country.universities}+</span>
-                    <span><CurrencyDollar size={14} weight="bold" /> {country.avgTuition}</span>
-                    <span><MapPin size={14} weight="bold" /> {country.language}</span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+    <section className="relative min-h-screen w-full bg-background py-16" aria-label="Destinations">
+      <div className="mx-auto max-w-7xl px-4 md:px-10">
+        <div className="mb-8 text-center">
+          <span className="inline-block text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            06 / WORLD STUDY DESTINATIONS
+          </span>
+          <h2 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+            DISCOVER YOUR GLOBAL CAMPUS
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Explore tuition costs, post-study visa pathways, and top accredited universities worldwide.
+          </p>
         </div>
-      </div>
 
-      {/* Step indicators */}
-      <div className="dest-indicators">
-        {destinations.map((_, index) => (
-          <button
-            key={index}
-            className={`dest-dot ${index === activeIndex ? 'active' : ''}`}
-            onClick={() => handleCardClick(index)}
-            aria-label={`Go to destination ${index + 1}`}
-          />
-        ))}
+        <BentoGridShowcase
+          integrations={<IntegrationsCard />}
+          featureTags={<FeatureTagsCard />}
+          mainFeature={<MainFeatureCard />}
+          secondaryFeature={<SecondaryFeatureCard />}
+          statistic={<StatCard />}
+          journey={<JourneyCard />}
+        />
       </div>
     </section>
   );

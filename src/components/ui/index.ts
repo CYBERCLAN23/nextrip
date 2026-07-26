@@ -1,8 +1,7 @@
 export { Button, buttonVariants } from "./Button"
 export type { ButtonProps } from "./Button"
 
-export { Card, CardHeader, CardBody, CardFooter, cardVariants } from "./Card"
-export type { CardProps, CardHeaderProps, CardBodyProps, CardFooterProps } from "./Card"
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "./Card"
 
 export { SectionHeader } from "./SectionHeader"
 export type { SectionHeaderProps } from "./SectionHeader"
@@ -17,3 +16,7 @@ export { MagneticButton } from "./MagneticButton"
 export { PinnedSection } from "./PinnedSection"
 export { HorizontalScroll } from "./HorizontalScroll"
 export { MagneticCursor } from "./MagneticCursor"
+
+export { Avatar, AvatarImage, AvatarFallback } from "./Avatar"
+
+export { BentoGridShowcase } from "./bento-grid"

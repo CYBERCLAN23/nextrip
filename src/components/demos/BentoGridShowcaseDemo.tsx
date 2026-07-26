@@ -5,15 +5,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+} from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { BentoGridShowcase } from "@/components/ui/bento-grid";
 import {
   Calendar,
   HeartPulse,
+  MessageCircle,
   Plus,
-  Slack,
   Zap,
 } from "lucide-react";
 
@@ -30,7 +30,7 @@ const IntegrationsCard = () => (
         <Calendar className="h-6 w-6 text-muted-foreground" />
       </div>
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
-        <Slack className="h-6 w-6 text-muted-foreground" />
+        <MessageCircle className="h-6 w-6 text-muted-foreground" />
       </div>
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
         <Zap className="h-6 w-6 text-muted-foreground" />
