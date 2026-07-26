@@ -1,0 +1,23 @@
+/* ═══════════════════════════════════════════════
+   NexTrip Design System — Tailwind v4 Integration
+   ═══════════════════════════════════════════════
+   Activate when the lightningcss native binary
+   issue is resolved on this machine.
+   ═══════════════════════════════════════════════ */
+
+/* @import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+
+  --color-white: var(--color-white);
+  --color-black: var(--color-black);
+  --color-transparent: var(--color-transparent);
+  --color-current: currentColor;
+
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  ...
+} */

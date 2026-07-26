@@ -1,0 +1,102 @@
+/* ═══════════════════════════════════════════════
+   FAQ Section — Light Editorial Style (Matching Section 3)
+   ═══════════════════════════════════════════════ */
+
+.faq-section {
+  position: relative;
+  background-color: #F5F2ED;
+  color: #0F172A;
+  overflow: hidden;
+}
+
+.faq-bg-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Crosshair Top Line & Diamond Terminals */
+.faq-crosshair-top {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.faq-line-h {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #1C2434;
+  opacity: 0.12;
+}
+
+.faq-terminal {
+  color: #1C2434;
+  opacity: 0.35;
+}
+
+/* Header Styling */
+.faq-eyebrow {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #0A3D91;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.faq-heading {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  text-transform: uppercase;
+  color: #0F172A;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.faq-header-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #0A3D91, #D4AF37);
+  margin: 0 auto 1rem;
+}
+
+.faq-subheading {
+  font-size: 1rem;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Category Filter Chips */
+.faq-cat-chip {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #475569;
+  background: rgba(28, 36, 52, 0.04);
+  border: 1px solid rgba(28, 36, 52, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.faq-cat-chip:hover {
+  color: #0A3D91;
+  background: rgba(10, 61, 145, 0.08);
+}
+
+.faq-cat-chip--active {
+  color: #FFFFFF;
+  background: #0A3D91;
+  border-color: #D4AF37;
+  box-shadow: 0 4px 12px rgba(10, 61, 145, 0.2);
+}

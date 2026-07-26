@@ -1,0 +1,113 @@
+/* ═══════════════════════════════════════════════
+   StickyScrollCardsSection styles (plain CSS)
+   ═══════════════════════════════════════════════ */
+
+.sss-section {
+  position: relative;
+  width: 100%;
+  background-color: #F8FAFC;
+}
+
+/* ── Radial glow ── */
+.sss-glow-wrap {
+  pointer-events: none;
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 520px;
+  overflow: hidden;
+}
+
+.sss-glow {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 420px;
+  width: 720px;
+  transform: translateX(-50%) translateY(-25%);
+  border-radius: 9999px;
+  background: rgba(10, 61, 145, 0.05);
+  filter: blur(80px);
+}
+
+.sss-header {
+  position: relative;
+  margin: 0 auto;
+  max-width: 48rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 96px 24px 24px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .sss-header {
+    padding: 48px 16px 12px;
+    gap: 12px;
+  }
+}
+
+/* ── Badge ── */
+.sss-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 9999px;
+  border: 1px solid rgba(10, 61, 145, 0.2);
+  background: rgba(10, 61, 145, 0.08);
+  padding: 6px 16px;
+}
+
+.sss-badge__dot {
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-radius: 9999px;
+  background: var(--color-primary, #0a3d91);
+}
+
+.sss-badge__text {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-primary, #0a3d91);
+}
+
+/* ── Heading ── */
+.sss-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #1E293B;
+  margin: 0;
+}
+
+.sss-heading__accent {
+  color: var(--color-primary, #0a3d91);
+}
+
+/* ── Subtext ── */
+.sss-subtext {
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+}
+
+/* ── Progress dots ── */
+.sss-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.sss-dot {
+  height: 4px;
+  border-radius: 9999px;
+  background: rgba(10, 61, 145, 0.25);
+  transition: width 0.3s ease;
+}

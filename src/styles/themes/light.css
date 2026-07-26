@@ -1,0 +1,61 @@
+/* ═══════════════════════════════════════════════
+   NexTrip Design System — Light Theme
+   ═══════════════════════════════════════════════ */
+
+.light,
+.light-theme,
+:root {
+  /* ── Background Colors ── */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F5F7FA;
+  --color-bg-tertiary: #EDF0F5;
+  --color-bg-inverse: #071A52;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-overlay: rgba(7, 26, 82, 0.5);
+  --color-bg-accent: #EFF4FF;
+
+  /* ── Text / Foreground Colors ── */
+  --color-text-primary: #1C2434;
+  --color-text-secondary: #667085;
+  --color-text-tertiary: #98A2B3;
+  --color-text-inverse: #FFFFFF;
+  --color-text-link: #0A3D91;
+  --color-text-success: #38A169;
+  --color-text-warning: #D97706;
+  --color-text-danger: #E53E3E;
+  --color-text-disabled: #CBD5E1;
+
+  /* ── Border Colors ── */
+  --color-border-default: #E2E8F0;
+  --color-border-light: #F1F5F9;
+  --color-border-medium: #CBD5E1;
+  --color-border-strong: #94A3B8;
+  --color-border-focus: #0A3D91;
+  --color-border-success: #48BB78;
+  --color-border-warning: #F59E0B;
+  --color-border-danger: #F56565;
+
+  /* ── Interactive States ── */
+  --color-interactive-hover: rgba(10, 61, 145, 0.06);
+  --color-interactive-active: rgba(10, 61, 145, 0.12);
+  --color-interactive-disabled: rgba(0, 0, 0, 0.04);
+  --color-interactive-focus: rgba(10, 61, 145, 0.15);
+
+  /* ── Surface Colors ── */
+  --color-surface-card: #FFFFFF;
+  --color-surface-modal: #FFFFFF;
+  --color-surface-dropdown: #FFFFFF;
+  --color-surface-tooltip: #1E293B;
+  --color-surface-input: #FFFFFF;
+  --color-surface-navbar: rgba(255, 255, 255, 0.85);
+  --color-surface-sidebar: #F8FAFC;
+
+  /* ── Chart Colors ── */
+  --color-chart-1: #0A3D91;
+  --color-chart-2: #00D9FF;
+  --color-chart-3: #D81F2A;
+  --color-chart-4: #38A169;
+  --color-chart-5: #F59E0B;
+  --color-chart-6: #1D5FD1;
+  --color-chart-7: #7C3AED;
+}

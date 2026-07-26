@@ -1,0 +1,90 @@
+/* ═══════════════════════════════════════════════
+   Destination Section — Dark Obsidian Style (Matching Hero Section 1)
+   ═══════════════════════════════════════════════ */
+
+.dest-section {
+  position: relative;
+  background-color: #0B111A; /* Dark obsidian matching Hero */
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.dest-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 50% 30%, rgba(10, 61, 145, 0.15), transparent 70%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Crosshair Top Line & Diamond Terminals */
+.dest-crosshair-top {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.dest-line-h {
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dest-terminal {
+  color: #D4AF37;
+  opacity: 0.6;
+}
+
+/* Header Styling */
+.dest-eyebrow {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #D4AF37; /* Luxury Gold */
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.dest-heading {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 1rem;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.dest-header-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #D4AF37, #0A3D91);
+  margin: 0 auto 1rem;
+}
+
+.dest-subheading {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 3D Card Wrapper */
+.dest-card-3d-wrapper {
+  perspective: 1000px;
+}
+
+.dest-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.dest-card:hover {
+  box-shadow: 0 20px 50px rgba(10, 61, 145, 0.3);
+}

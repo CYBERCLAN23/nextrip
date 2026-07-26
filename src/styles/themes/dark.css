@@ -1,0 +1,60 @@
+/* ═══════════════════════════════════════════════
+   NexTrip Design System — Dark Theme
+   ═══════════════════════════════════════════════ */
+
+.dark,
+.dark-theme {
+  /* ── Background Colors ── */
+  --color-bg-primary: #0F172A;
+  --color-bg-secondary: #1E293B;
+  --color-bg-tertiary: #334155;
+  --color-bg-inverse: #FFFFFF;
+  --color-bg-elevated: #1E293B;
+  --color-bg-overlay: rgba(0, 0, 0, 0.65);
+  --color-bg-accent: rgba(10, 61, 145, 0.15);
+
+  /* ── Text / Foreground Colors ── */
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-tertiary: #64748B;
+  --color-text-inverse: #0F172A;
+  --color-text-link: #80ADFF;
+  --color-text-success: #68D391;
+  --color-text-warning: #FBBF24;
+  --color-text-danger: #FC8181;
+  --color-text-disabled: #475569;
+
+  /* ── Border Colors ── */
+  --color-border-default: #334155;
+  --color-border-light: #1E293B;
+  --color-border-medium: #475569;
+  --color-border-strong: #64748B;
+  --color-border-focus: #80ADFF;
+  --color-border-success: #48BB78;
+  --color-border-warning: #F59E0B;
+  --color-border-danger: #F56565;
+
+  /* ── Interactive States ── */
+  --color-interactive-hover: rgba(255, 255, 255, 0.06);
+  --color-interactive-active: rgba(255, 255, 255, 0.12);
+  --color-interactive-disabled: rgba(255, 255, 255, 0.04);
+  --color-interactive-focus: rgba(128, 173, 255, 0.2);
+
+  /* ── Surface Colors ── */
+  --color-surface-card: #1E293B;
+  --color-surface-modal: #1E293B;
+  --color-surface-dropdown: #1E293B;
+  --color-surface-tooltip: #F1F5F9;
+  --color-surface-input: #334155;
+  --color-surface-navbar: rgba(15, 23, 42, 0.9);
+  --color-surface-sidebar: #0F172A;
+
+  /* ── Chart Colors ── */
+  --color-chart-1: #80ADFF;
+  --color-chart-2: #4DE6FF;
+  --color-chart-3: #FC8181;
+  --color-chart-4: #68D391;
+  --color-chart-5: #FCD34D;
+  --color-chart-6: #B3CEFF;
+  --color-chart-7: #A78BFA;
+}
