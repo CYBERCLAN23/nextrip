@@ -60,6 +60,7 @@ export function Globe({
     if (!canvas) return;
 
     let phi = initialPhi;
+    let animationId = 0;
 
     const globe = createGlobe(canvas, {
       devicePixelRatio: Math.min(window.devicePixelRatio, 2),
@@ -87,15 +88,19 @@ export function Globe({
       arcHeight,
       markerElevation,
       offset,
-      onRender: (state) => {
-        if (autoRotate) {
-          phi += rotationSpeed;
-          state.phi = phi;
-        }
-      },
     });
 
+    function animate() {
+      if (autoRotate) {
+        phi += rotationSpeed;
+        globe.update({ phi });
+      }
+      animationId = requestAnimationFrame(animate);
+    }
+    animate();
+
     return () => {
+      cancelAnimationFrame(animationId);
       globe.destroy();
     };
   }, []);

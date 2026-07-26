@@ -113,17 +113,17 @@ export function UniversitiesSection() {
                 arcs={GLOBE_ARCS}
                 markerColor={[0.83, 0.68, 0.22]}
                 arcColor={[0.3, 0.6, 0.9]}
-                baseColor={[0.92, 0.92, 0.95]}
-                glowColor={[0.9, 0.9, 0.95]}
-                dark={0}
-                mapBrightness={6}
-                markerSize={0.03}
+                baseColor={[0.02, 0.06, 0.15]}
+                glowColor={[0.02, 0.06, 0.16]}
+                dark={0.85}
+                mapBrightness={1.6}
+                markerSize={0.04}
                 markerElevation={0.015}
-                arcWidth={1.4}
-                arcHeight={1.5}
-                diffuse={1.2}
+                arcWidth={2.2}
+                arcHeight={1.8}
+                diffuse={2.0}
                 autoRotate
-                rotationSpeed={0.003}
+                rotationSpeed={0.004}
               />
             </div>
 
