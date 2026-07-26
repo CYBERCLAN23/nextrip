@@ -112,20 +112,20 @@ export function UniversitiesSection() {
       <div className="uni-container max-w-7xl mx-auto px-6 relative z-10">
         {/* Editorial Header */}
         <header className="uni-header text-center max-w-3xl mx-auto mb-14">
-          <span className={`uni-eyebrow ${oswald.className}`}>
+          <span className={`uni-eyebrow ${oswald.className}`} data-animate-slide-l>
             05 / GLOBAL CAMPUS CATALOG & ADMISSIONS
           </span>
-          <h2 className={`uni-heading ${oswald.className}`}>
+          <h2 className={`uni-heading ${oswald.className}`} data-animate-heading>
             EXPLORE 500+ ACCREDITED UNIVERSITIES
           </h2>
-          <div className="uni-header-divider" />
-          <p className="uni-subheading">
+          <div className="uni-header-divider" data-animate-clip />
+          <p className="uni-subheading" data-animate-fade>
             Direct admission channels, verified program criteria, and guaranteed scholarship waivers.
           </p>
         </header>
 
         {/* Category Filter Pills */}
-        <div className="uni-filter-bar flex flex-wrap justify-center gap-3 mb-14">
+        <div className="uni-filter-bar flex flex-wrap justify-center gap-3 mb-14" data-animate-stagger="0.04">
           {categories.map((cat) => (
             <button
               key={cat}

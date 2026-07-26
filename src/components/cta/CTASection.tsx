@@ -103,6 +103,7 @@ export function CTASection() {
       aria-label="Call to Action"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      data-animate-section
     >
       {/* Background Radial Glow & Noise */}
       <div className="cta-bg-overlay" />
@@ -118,27 +119,29 @@ export function CTASection() {
         {/* 3D Tilt Container */}
         <div ref={tiltRef} className="cta-tilt-wrapper">
           {/* Eyebrow */}
-          <span className={`cta-eyebrow ${oswald.className}`}>
+          <span className={`cta-eyebrow ${oswald.className}`} data-animate-slide-l>
             10 / INITIATE YOUR GLOBAL ADMISSION JOURNEY
           </span>
 
           {/* Headline */}
-          <h2 className={`cta-heading ${oswald.className}`}>
+          <h2 className={`cta-heading ${oswald.className}`} data-animate-heading>
             READY TO STUDY AT A TOP GLOBAL UNIVERSITY?
           </h2>
 
-          <div className="cta-header-divider" />
+          <div className="cta-header-divider" data-animate-clip />
 
           {/* Monogram Crest */}
-          <CentralCrestBadge />
+          <div data-animate-pop>
+            <CentralCrestBadge />
+          </div>
 
-          <p className="cta-subheading">
+          <p className="cta-subheading" data-animate-blur>
             Schedule a 1-on-1 strategy session with a senior global education advisor. We evaluate your profile, shortlist top universities, and map out your scholarship path.
           </p>
 
           {/* Form or Success State */}
           {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className="cta-form max-w-xl mx-auto mt-10 flex flex-col sm:flex-row gap-4">
+            <form onSubmit={handleSubmit} className="cta-form max-w-xl mx-auto mt-10 flex flex-col sm:flex-row gap-4" data-animate-fade>
               <input
                 type="email"
                 required
@@ -161,7 +164,7 @@ export function CTASection() {
           )}
 
           {/* Trust Metrics */}
-          <div className="cta-trust-grid grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mt-16 pt-8 border-t border-slate-800 text-slate-400 text-xs uppercase tracking-wider font-semibold">
+          <div className="cta-trust-grid grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mt-16 pt-8 border-t border-slate-800 text-slate-400 text-xs uppercase tracking-wider font-semibold" data-animate-stagger="0.12">
             <div className="flex items-center justify-center gap-2">
               <ShieldCheck size={18} className="text-amber-400" />
               <span>98% VISA APPROVAL RATE</span>

@@ -134,14 +134,14 @@ export function TestimonialsSection() {
       <div className="test-container max-w-7xl mx-auto px-6 relative z-10">
         {/* Editorial Section Header */}
         <header className="test-header text-center max-w-3xl mx-auto mb-10">
-          <span className={`test-eyebrow ${oswald.className}`}>
+          <span className={`test-eyebrow ${oswald.className}`} data-animate-slide-l>
             07 / REAL SCHOLAR IMPACT STORIES
           </span>
-          <h2 className={`test-heading ${oswald.className}`}>
+          <h2 className={`test-heading ${oswald.className}`} data-animate-heading>
             FROM GLOBAL ASPIRATIONS TO ADMISSION SUCCESS
           </h2>
-          <div className="test-header-divider" />
-          <p className="test-subheading">
+          <div className="test-header-divider" data-animate-clip />
+          <p className="test-subheading" data-animate-fade>
             Audited, verified success journeys of students admitted to world-leading universities.
           </p>
         </header>

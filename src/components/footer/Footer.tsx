@@ -13,8 +13,8 @@ export function Footer() {
         
         <div className="footer__top">
           {/* Brand */}
-          <div className="footer__brand">
-            <Link href="/" className="footer__logo">
+          <div className="footer__brand" data-animate-fade>
+            <Link href="/" className="footer__logo" data-animate-blur>
               Nex<span>Trip</span>
             </Link>
             <p className="footer__desc">
@@ -23,9 +23,9 @@ export function Footer() {
           </div>
 
           {/* Column 1 */}
-          <div className="footer__col">
-            <h3 className="footer__col-title">Destinations</h3>
-            <ul className="footer__links">
+          <div className="footer__col" data-animate-fade>
+            <h3 className="footer__col-title" data-animate-slide-l>Destinations</h3>
+            <ul className="footer__links" data-animate-stagger="0.04">
               <li><Link href="/destinations/canada" className="footer__link">Study in Canada</Link></li>
               <li><Link href="/destinations/uk" className="footer__link">Study in UK</Link></li>
               <li><Link href="/destinations/usa" className="footer__link">Study in USA</Link></li>
@@ -35,9 +35,9 @@ export function Footer() {
           </div>
 
           {/* Column 2 */}
-          <div className="footer__col">
-            <h3 className="footer__col-title">Services</h3>
-            <ul className="footer__links">
+          <div className="footer__col" data-animate-fade>
+            <h3 className="footer__col-title" data-animate-slide-l>Services</h3>
+            <ul className="footer__links" data-animate-stagger="0.04">
               <li><Link href="/services/admissions" className="footer__link">University Admissions</Link></li>
               <li><Link href="/services/visa" className="footer__link">Visa Assistance</Link></li>
               <li><Link href="/services/scholarships" className="footer__link">Scholarships</Link></li>
@@ -46,9 +46,9 @@ export function Footer() {
           </div>
 
           {/* Column 3 */}
-          <div className="footer__col">
-            <h3 className="footer__col-title">Company</h3>
-            <ul className="footer__links">
+          <div className="footer__col" data-animate-fade>
+            <h3 className="footer__col-title" data-animate-slide-l>Company</h3>
+            <ul className="footer__links" data-animate-stagger="0.04">
               <li><Link href="/about" className="footer__link">About Us</Link></li>
               <li><Link href="/success-stories" className="footer__link">Success Stories</Link></li>
               <li><Link href="/contact" className="footer__link">Contact</Link></li>
@@ -57,11 +57,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="footer__bottom">
+        <div className="footer__bottom" data-animate-fade>
           <p className="footer__copy">
             &copy; {currentYear} NexTrip Education. All rights reserved.
           </p>
-          <div className="footer__legal">
+          <div className="footer__legal" data-animate-stagger="0.08">
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Service</Link>
             <Link href="/cookies">Cookie Policy</Link>

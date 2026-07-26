@@ -183,9 +183,9 @@ export function TrustSection() {
       <div className="flight-journey__container">
         {/* Header */}
         <div className="flight-journey__intro">
-          <span className="flight-journey__eyebrow">Interactive Roadmap</span>
-          <h2 className="flight-journey__heading">Your Strategic Flight Path</h2>
-          <p className="flight-journey__subheading">
+          <span className="flight-journey__eyebrow" data-animate-slide-l>Interactive Roadmap</span>
+          <h2 className="flight-journey__heading" data-animate-heading>Your Strategic Flight Path</h2>
+          <p className="flight-journey__subheading" data-animate-fade>
             Scroll to guide your flight across each milestone — from exploration to landing.
           </p>
         </div>

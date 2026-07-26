@@ -118,6 +118,7 @@ export function JourneySection() {
               color: activeTheme.accent,
               backgroundColor: activeTheme.accentLight,
             }}
+            data-animate-slide-l
           >
             04 / ROADMAP TO SCHOLARSHIP & ADMISSION
           </span>
@@ -125,6 +126,7 @@ export function JourneySection() {
           <h2
             className={`beetogreen-main-title ${oswald.className} transition-colors duration-500`}
             style={{ color: activeTheme.textDark }}
+            data-animate-heading
           >
             How do we guide your journey,{' '}
             <span
@@ -135,7 +137,7 @@ export function JourneySection() {
             </span>
           </h2>
 
-          <p className="beetogreen-subtitle">
+          <p className="beetogreen-subtitle" data-animate-fade>
             A structured, transparent step-by-step pathway crafted by global scholars and visa experts.
           </p>
         </header>

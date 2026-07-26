@@ -116,20 +116,20 @@ export function ResourcesSection() {
       <div className="res-container max-w-7xl mx-auto px-6 relative z-10">
         {/* Editorial Section Header */}
         <header className="res-header text-center max-w-3xl mx-auto mb-14">
-          <span className={`res-eyebrow ${oswald.className}`}>
+          <span className={`res-eyebrow ${oswald.className}`} data-animate-slide-l>
             08 / KNOWLEDGE HUB & ADMISSION GUIDES
           </span>
-          <h2 className={`res-heading ${oswald.className}`}>
+          <h2 className={`res-heading ${oswald.className}`} data-animate-heading>
             EXPERT INSIGHTS FOR SCHOLARS WORLDWIDE
           </h2>
-          <div className="res-header-divider" />
-          <p className="res-subheading">
+          <div className="res-header-divider" data-animate-clip />
+          <p className="res-subheading" data-animate-fade>
             Curated visa walkthroughs, scholarship playbooks, and university admission strategies.
           </p>
         </header>
 
         {/* Search & Category Filter Bar */}
-        <div className="res-controls flex flex-col md:flex-row items-center justify-between gap-6 mb-14">
+        <div className="res-controls flex flex-col md:flex-row items-center justify-between gap-6 mb-14" data-animate-fade>
           {/* Category Pills */}
           <div className="res-categories flex flex-wrap justify-center gap-2">
             <button

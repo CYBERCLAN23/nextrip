@@ -202,7 +202,7 @@ export function ServicesSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="quadrant-section" aria-label="NexTrip Core Values">
+    <section ref={sectionRef} className="quadrant-section" aria-label="NexTrip Core Values" data-animate-section>
       <div className="quadrant-container">
         
         {/* Crosshair Lines */}

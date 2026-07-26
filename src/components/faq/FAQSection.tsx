@@ -94,20 +94,20 @@ export function FAQSection() {
       <div className="faq-container max-w-5xl mx-auto px-6 relative z-10">
         {/* Editorial Section Header */}
         <header className="faq-header text-center max-w-3xl mx-auto mb-14">
-          <span className={`faq-eyebrow ${oswald.className}`}>
+          <span className={`faq-eyebrow ${oswald.className}`} data-animate-slide-l>
             09 / TRANSPARENT ADMISSION ANSWERS
           </span>
-          <h2 className={`faq-heading ${oswald.className}`}>
+          <h2 className={`faq-heading ${oswald.className}`} data-animate-heading>
             FREQUENTLY ASKED QUESTIONS
           </h2>
-          <div className="faq-header-divider" />
-          <p className="faq-subheading">
+          <div className="faq-header-divider" data-animate-clip />
+          <p className="faq-subheading" data-animate-fade>
             Clear, honest answers regarding university requirements, scholarships, visas, and living costs.
           </p>
         </header>
 
         {/* Search & Category Filter */}
-        <div className="faq-controls flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+        <div className="faq-controls flex flex-col md:flex-row items-center justify-between gap-6 mb-12" data-animate-fade>
           {/* Category Chips */}
           <div className="faq-categories flex flex-wrap justify-center gap-2">
             {faqCategories.map((cat) => (

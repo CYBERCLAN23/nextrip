@@ -108,14 +108,14 @@ export function DestinationSection() {
 
       {/* Section Header */}
       <header className="dest-header relative z-10 text-center max-w-4xl mx-auto pt-16 px-6">
-        <span className={`dest-eyebrow ${oswald.className}`}>
+        <span className={`dest-eyebrow ${oswald.className}`} data-animate-slide-l>
           06 / WORLD STUDY DESTINATIONS
         </span>
-        <h2 className={`dest-heading ${oswald.className}`}>
+        <h2 className={`dest-heading ${oswald.className}`} data-animate-heading>
           DISCOVER YOUR GLOBAL CAMPUS HUB
         </h2>
-        <div className="dest-header-divider" />
-        <p className="dest-subheading">
+        <div className="dest-header-divider" data-animate-clip />
+        <p className="dest-subheading" data-animate-blur>
           Explore tuition costs, post-study visa pathways, and top accredited universities worldwide.
         </p>
       </header>
