@@ -12,55 +12,59 @@ import { Badge } from "@/components/ui/Badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { BentoGridShowcase } from "@/components/ui/bento-grid";
 import {
-  Calendar,
-  HeartPulse,
-  MessageCircle,
+  BookOpen,
+  GraduationCap,
+  Globe,
+  Heart,
+  Landmark,
+  MapPin,
   Plus,
-  Zap,
+  Star,
+  Users,
 } from "lucide-react";
 
-const IntegrationsCard = () => (
+const ProgramsCard = () => (
   <Card className="h-full">
     <CardHeader>
-      <CardTitle className="text-lg">Integrations</CardTitle>
+      <CardTitle className="text-lg">2,500+ Programs</CardTitle>
       <CardDescription>
-        Easily integrations of third party apps.
+        Across 600+ partner universities worldwide
       </CardDescription>
     </CardHeader>
     <CardContent className="flex items-center justify-center gap-4">
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-neutral-100)]">
-        <Calendar className="h-6 w-6 text-[var(--color-neutral-500)]" />
+        <BookOpen className="h-6 w-6 text-[var(--color-neutral-500)]" />
       </div>
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-neutral-100)]">
-        <MessageCircle className="h-6 w-6 text-[var(--color-neutral-500)]" />
+        <Globe className="h-6 w-6 text-[var(--color-neutral-500)]" />
       </div>
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-neutral-100)]">
-        <Zap className="h-6 w-6 text-[var(--color-neutral-500)]" />
+        <GraduationCap className="h-6 w-6 text-[var(--color-neutral-500)]" />
       </div>
     </CardContent>
   </Card>
 );
 
-const FeatureTagsCard = () => (
+const BenefitsCard = () => (
   <Card className="h-full">
     <CardContent className="flex h-full flex-col justify-center gap-3 p-6">
       <Badge
         variant="outline"
-        className="w-fit items-center gap-1.5 border-purple-300 py-1.5 px-3 text-purple-700 dark:border-purple-700 dark:text-purple-300"
+        className="w-fit items-center gap-1.5 border-[var(--color-primary-300)] py-1.5 px-3 text-[var(--color-primary-600)]"
       >
-        Innovative <Plus className="h-3 w-3" />
+        Global Access <Plus className="h-3 w-3" />
       </Badge>
       <Badge
         variant="secondary"
-        className="w-fit items-center gap-1.5 bg-purple-100 py-1.5 px-3 text-purple-700 hover:bg-purple-200 dark:bg-purple-900/50 dark:text-purple-300 dark:hover:bg-purple-900/80"
+        className="w-fit items-center gap-1.5 py-1.5 px-3"
       >
-        Revolutionary
+        World-Class Education
       </Badge>
       <Badge
         variant="outline"
-        className="w-fit items-center gap-1.5 border-purple-300 py-1.5 px-3 text-purple-700 dark:border-purple-700 dark:text-purple-300"
+        className="w-fit items-center gap-1.5 border-[var(--color-primary-300)] py-1.5 px-3 text-[var(--color-primary-600)]"
       >
-        Empowering <Plus className="h-3 w-3" />
+        Career Ready <Plus className="h-3 w-3" />
       </Badge>
     </CardContent>
   </Card>
@@ -68,63 +72,70 @@ const FeatureTagsCard = () => (
 
 const MainFeatureCard = () => (
   <Card className="relative flex h-full min-h-[400px] w-full overflow-hidden">
-    <div className="absolute top-6 left-6 z-10 rounded-lg bg-white/50 p-2 backdrop-blur-sm">
-      <p className="text-xl font-bold tracking-tighter">Study Abroad.</p>
-    </div>
     <img
       src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&auto=format"
       alt="Students on graduation day"
       className="h-full w-full object-cover"
       crossOrigin="anonymous"
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+    <div className="absolute bottom-6 left-6 z-10">
+      <p className="text-2xl font-bold text-white drop-shadow-lg">Study Abroad</p>
+      <p className="text-sm text-white/80 drop-shadow">Open doors to global opportunities</p>
+    </div>
   </Card>
 );
 
 const StatCard = () => (
-  <Card className="flex h-full min-h-[200px] flex-col justify-between bg-lime-100/80 p-6 dark:bg-lime-950/80">
-    <HeartPulse className="h-8 w-8 text-lime-700 dark:text-lime-300" />
+  <Card className="flex h-full min-h-[200px] flex-col justify-between bg-[var(--color-success-50)] p-6">
+    <Star className="h-8 w-8 text-[var(--color-success-600)]" />
     <div>
-      <p className="text-6xl font-bold text-lime-900 dark:text-lime-100">95%</p>
-      <p className="text-sm text-lime-800 dark:text-lime-200">
-        Student satisfaction rate with our global partners.
+      <p className="text-6xl font-bold text-[var(--color-success-700)]">97%</p>
+      <p className="text-sm text-[var(--color-success-600)]">
+        Student satisfaction rate with our guidance and support.
       </p>
     </div>
   </Card>
 );
 
-const SecondaryFeatureCard = () => (
+const StudentLifeCard = () => (
   <Card className="relative flex h-full min-h-[200px] w-full overflow-hidden">
     <img
       src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format"
-      alt="Students studying together"
+      alt="Students collaborating"
       className="h-full w-full object-cover"
       crossOrigin="anonymous"
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-blue-500/30 via-transparent to-transparent dark:from-blue-900/40" />
-    <p className="absolute bottom-6 left-6 z-10 max-w-[80%] text-xl font-bold text-white [text-shadow:_0_1px_4px_rgb(0_0_0_/_30%)]">
-      Discover your path to global education.
+    <div className="absolute inset-0 bg-gradient-to-t from-blue-500/40 via-transparent to-transparent" />
+    <p className="absolute bottom-6 left-6 z-10 max-w-[80%] text-xl font-bold text-white drop-shadow-lg">
+      Your journey starts here
     </p>
   </Card>
 );
 
 const JourneyCard = () => (
   <Card className="relative h-full w-full overflow-hidden p-6">
-    <CardTitle className="text-lg">Weekly Journey</CardTitle>
+    <CardTitle className="text-lg">Apply in 3 Steps</CardTitle>
     <CardDescription>
-      Workflow and Patient journey mapping within 02-03 Weeks.
+      Choose your destination, submit documents, get your visa.
     </CardDescription>
     <div className="absolute -right-4 -bottom-4 h-48 w-48">
       <div className="absolute top-8 left-20">
         <Avatar>
           <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" />
-          <AvatarFallback>A</AvatarFallback>
+          <AvatarFallback>SA</AvatarFallback>
         </Avatar>
       </div>
       <div className="absolute top-24 left-8">
         <Avatar>
           <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" />
-          <AvatarFallback>B</AvatarFallback>
+          <AvatarFallback>SB</AvatarFallback>
+        </Avatar>
+      </div>
+      <div className="absolute top-4 left-4">
+        <Avatar>
+          <AvatarImage src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" />
+          <AvatarFallback>SC</AvatarFallback>
         </Avatar>
       </div>
     </div>
@@ -133,25 +144,25 @@ const JourneyCard = () => (
 
 export function DestinationSection() {
   return (
-    <section className="relative min-h-screen w-full bg-[var(--color-white)] py-16" aria-label="Destinations">
+    <section className="relative min-h-screen w-full bg-[var(--color-white)] py-16" aria-label="Study Destinations">
       <div className="mx-auto max-w-7xl px-4 md:px-10">
-        <div className="mb-8 text-center">
+        <div className="mb-12 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
             06 / WORLD STUDY DESTINATIONS
           </span>
-          <h2 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+          <h2 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl text-[var(--color-neutral-900)]">
             DISCOVER YOUR GLOBAL CAMPUS
           </h2>
-          <p className="mt-4 text-lg text-[var(--color-neutral-500)]">
+          <p className="mt-4 text-lg text-[var(--color-neutral-500)] max-w-2xl mx-auto">
             Explore tuition costs, post-study visa pathways, and top accredited universities worldwide.
           </p>
         </div>
 
         <BentoGridShowcase
-          integrations={<IntegrationsCard />}
-          featureTags={<FeatureTagsCard />}
+          integrations={<ProgramsCard />}
+          featureTags={<BenefitsCard />}
           mainFeature={<MainFeatureCard />}
-          secondaryFeature={<SecondaryFeatureCard />}
+          secondaryFeature={<StudentLifeCard />}
           statistic={<StatCard />}
           journey={<JourneyCard />}
         />
