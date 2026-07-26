@@ -231,6 +231,7 @@ export function TrustSection() {
                   top: `${step.coordinates.y}%`,
                   transform: "translate(-50%, -50%)",
                 }}
+                data-animate-pop
               >
                 {/* Compact view — always visible */}
                 <div className="flight-journey__card-header">
@@ -239,8 +240,8 @@ export function TrustSection() {
                     <Icon size={24} weight="bold" />
                   </div>
                 </div>
-                <h3 className="flight-journey__card-title">{step.title}</h3>
-                <p className="flight-journey__card-desc">{step.description}</p>
+                <h3 className="flight-journey__card-title" data-animate-fade>{step.title}</h3>
+                <p className="flight-journey__card-desc" data-animate-fade>{step.description}</p>
 
                 {/* Expanded detail — shown via CSS when card has --expanded class */}
                 <div className="flight-journey__card-detailed">

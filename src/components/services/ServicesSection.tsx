@@ -234,7 +234,7 @@ export function ServicesSection() {
         </div>
 
         {/* 4 Quadrants Grid */}
-        <div className="quadrant-grid">
+        <div className="quadrant-grid" data-animate-stagger="0.14">
           {QUADRANTS.map((q) => (
             <div key={q.id} className={`quadrant-item ${q.positionClass}`}>
               <h3 className="quadrant-title">{q.title}</h3>

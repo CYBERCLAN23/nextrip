@@ -146,8 +146,8 @@ export function JourneySection() {
         <div className="beetogreen-grid">
           
           {/* Left Column: Vertical Tab Navigation — Tab titles dynamic to theme */}
-          <div className="beetogreen-col-left">
-            <div className="beetogreen-tabs-list" role="tablist">
+          <div className="beetogreen-col-left" data-animate-fade>
+            <div className="beetogreen-tabs-list" role="tablist" data-animate-stagger="0.07">
               {journeySteps.map((step, index) => {
                 const isActive = index === activeStepIndex;
 
@@ -183,7 +183,7 @@ export function JourneySection() {
           </div>
 
           {/* Center Column: Portrait Frame with Popping & Fade GSAP-style Framer Entrance */}
-          <div className="beetogreen-col-center">
+          <div className="beetogreen-col-center" data-animate-pop>
             <div
               className="beetogreen-portrait-frame transition-all duration-500"
               style={{
@@ -216,7 +216,7 @@ export function JourneySection() {
           </div>
 
           {/* Right Column: Active Step Details Pane with Staggered Pop-in */}
-          <div className="beetogreen-col-right">
+          <div className="beetogreen-col-right" data-animate-fade>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStep.id}
