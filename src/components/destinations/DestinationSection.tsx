@@ -1,102 +1,76 @@
 'use client';
 
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { oswald } from "@/lib/fonts";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { destinations, CountryInfo } from './DestinationData';
-import { CountryPreview } from './CountryPreview';
-import { ArrowRight } from '@phosphor-icons/react';
+import { destinations } from './DestinationData';
+import {
+  GraduationCap, CurrencyDollar, MapPin,
+  Compass, Sun, BookOpen, Buildings, Globe
+} from '@phosphor-icons/react';
 import './destinations.css';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const DESTINATION_ICONS = [Compass, Sun, Buildings, BookOpen, Globe, GraduationCap];
 
 const DiamondTerminal = ({ className }: { className: string }) => (
-  <svg
-    className={`dest-terminal ${className}`}
-    width="16"
-    height="16"
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z"
-      fill="currentColor"
-    />
+  <svg className={`dest-terminal ${className}`} width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z" fill="currentColor" />
   </svg>
 );
 
 export function DestinationSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [selectedCountry, setSelectedCountry] = useState<CountryInfo | null>(null);
+  const scrollTweenRef = useRef<ScrollTrigger | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // 3D Perspective Mouse Tilt Handler (Matching Hero)
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>, card: HTMLDivElement) => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-    gsap.to(card, {
-      rotateY: x * 12,
-      rotateX: -y * 12,
-      transformPerspective: 1000,
-      duration: 0.6,
-      ease: 'power2.out',
-      overwrite: 'auto',
-    });
-  }, []);
-
-  const handleMouseLeave = useCallback((card: HTMLDivElement) => {
-    gsap.to(card, {
-      rotateX: 0,
-      rotateY: 0,
-      duration: 0.8,
-      ease: 'power3.out',
-      overwrite: 'auto',
-    });
-  }, []);
-
-  // GSAP Horizontal Scrub Pinning Animation
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
+    if (prefersReduced || !sectionRef.current) return;
 
-    const ctx = gsap.context(() => {
-      const track = trackRef.current;
-      const section = sectionRef.current;
-      if (!track || !section) return;
-
-      const getScrollAmount = () => -(track.scrollWidth - window.innerWidth + 120);
-
-      gsap.to(track, {
-        x: getScrollAmount,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: section,
-          pin: true,
-          scrub: 0.8,
-          start: 'top top',
-          end: () => `+=${track.scrollWidth}`,
-          invalidateOnRefresh: true,
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 769px)', () => {
+      scrollTweenRef.current = ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top top',
+        end: `+=${destinations.length * 500}`,
+        pin: true,
+        pinSpacing: true,
+        scrub: 0.6,
+        onUpdate: (self) => {
+          const rawIdx = Math.floor(self.progress * destinations.length);
+          setActiveIndex(Math.min(destinations.length - 1, Math.max(0, rawIdx)));
         },
       });
-    }, sectionRef);
+    });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
+  const handleCardClick = (index: number) => {
+    setActiveIndex(index);
+    if (sectionRef.current && typeof window !== 'undefined' && window.innerWidth > 768 && scrollTweenRef.current) {
+      const st = scrollTweenRef.current;
+      const progressPerStep = 1 / destinations.length;
+      const targetProgress = index * progressPerStep + progressPerStep / 2;
+      const targetScroll = st.start + targetProgress * (st.end - st.start);
+      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section ref={sectionRef} className="dest-section relative bg-[#0B111A] text-white min-h-screen flex flex-col justify-between overflow-hidden" aria-label="Destinations">
-      {/* Editorial Noise Grain & Background Overlay */}
+    <section
+      ref={sectionRef}
+      className="dest-section relative bg-[#0B111A] text-white min-h-screen overflow-hidden"
+      aria-label="Destinations"
+    >
+      {/* Background Grain & Glow */}
       <div className="dest-bg-overlay" />
 
       {/* Top Crosshair Grid Line */}
@@ -120,86 +94,60 @@ export function DestinationSection() {
         </p>
       </header>
 
-      {/* GSAP Horizontal Track Container */}
-      <div className="dest-horizontal-wrapper relative z-10 py-12 overflow-hidden flex-1 flex items-center">
-        <div ref={trackRef} className="dest-track flex gap-8 px-12 items-center">
-          {destinations.map((country: CountryInfo, index: number) => (
-            <div
-              key={country.id}
-              ref={(el) => {
-                cardRefs.current[index] = el;
-              }}
-              className="dest-card-3d-wrapper flex-shrink-0 w-[360px] sm:w-[420px]"
-              onMouseMove={(e) =>
-                cardRefs.current[index] && handleMouseMove(e, cardRefs.current[index]!)
-              }
-              onMouseLeave={() =>
-                cardRefs.current[index] && handleMouseLeave(cardRefs.current[index]!)
-              }
-            >
-              <article
-                className="dest-card group relative bg-slate-900/80 border border-slate-800 rounded-3xl overflow-hidden cursor-pointer backdrop-blur-xl shadow-2xl transition-all duration-500 hover:border-amber-500/50"
-                onClick={() => setSelectedCountry(country)}
+      {/* Interactive Selector */}
+      <div className="dest-selector-wrap relative z-10 flex-1 flex items-center px-6 pb-16">
+        <div className="dest-selector-track">
+          {destinations.map((country, index) => {
+            const isActive = index === activeIndex;
+            const IconComp = DESTINATION_ICONS[index] || Compass;
+
+            return (
+              <div
+                key={country.id}
+                className={`dest-card ${isActive ? 'active' : ''}`}
+                onClick={() => handleCardClick(index)}
               >
-                {/* Country Campus Image */}
-                <div className="dest-card-image-wrap relative h-64 overflow-hidden">
-                  <Image
-                    src={country.image}
-                    alt={`${country.name} study destination`}
-                    fill
-                    sizes="420px"
-                    className="dest-card-image object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="dest-card-overlay absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-                  
-                  {/* Flag Pill */}
-                  <div className="dest-card-flag-badge absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 bg-slate-950/80 backdrop-blur-md rounded-full border border-slate-700/60 text-xs font-semibold">
-                    <img src={country.flag} alt={`${country.name} flag`} className="w-5 h-3.5 object-cover rounded-sm" />
-                    <span className="uppercase tracking-wider">{country.code}</span>
-                  </div>
+                <Image
+                  src={country.image}
+                  alt={country.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 900px"
+                  className="dest-card-bg"
+                />
+                <div className="dest-card-shadow" />
 
-                  <div className={`dest-card-uni-count absolute top-4 right-4 ${oswald.className} px-3 py-1 bg-amber-500 text-slate-950 font-bold text-xs rounded-full uppercase`}>
-                    {country.universities}+ UNIVERSITIES
-                  </div>
+                {/* Icon */}
+                <div className="dest-card-icon">
+                  <IconComp size={24} weight="bold" />
                 </div>
 
-                {/* Card Content */}
-                <div className="dest-card-body p-6">
-                  <h3 className={`dest-card-title ${oswald.className} text-2xl font-bold uppercase tracking-tight text-white mb-2 group-hover:text-amber-400 transition-colors`}>
-                    {country.name}
-                  </h3>
-                  <p className="dest-card-desc text-slate-400 text-sm line-clamp-2 leading-relaxed mb-6">
-                    {country.description}
-                  </p>
-
-                  {/* Quick Stats Grid */}
-                  <div className="dest-card-stats grid grid-cols-2 gap-3 py-3 border-y border-slate-800 text-xs text-slate-300 mb-6">
-                    <div>
-                      <span className="block text-slate-500 uppercase tracking-wider text-[10px]">AVG TUITION</span>
-                      <span className={`font-bold text-emerald-400 text-sm ${oswald.className}`}>{country.avgTuition}</span>
-                    </div>
-                    <div>
-                      <span className="block text-slate-500 uppercase tracking-wider text-[10px]">LIVING COST</span>
-                      <span className={`font-bold text-amber-400 text-sm ${oswald.className}`}>{country.avgLivingCost}</span>
-                    </div>
-                  </div>
-
-                  {/* CTA Link */}
-                  <div className={`dest-card-cta flex items-center justify-between text-xs font-bold uppercase tracking-wider text-amber-400 group-hover:text-white transition-colors ${oswald.className}`}>
-                    <span>VIEW DESTINATION GUIDE & VISA PATHWAY</span>
-                    <ArrowRight size={16} weight="bold" className="transition-transform group-hover:translate-x-1" />
+                {/* Active Info */}
+                <div className="dest-card-info">
+                  <h3 className={`dest-card-name ${oswald.className}`}>{country.name}</h3>
+                  <p className="dest-card-desc">{country.description}</p>
+                  <div className="dest-card-meta">
+                    <span><GraduationCap size={14} weight="bold" /> {country.universities}+</span>
+                    <span><CurrencyDollar size={14} weight="bold" /> {country.avgTuition}</span>
+                    <span><MapPin size={14} weight="bold" /> {country.language}</span>
                   </div>
                 </div>
-              </article>
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {/* Country Preview Drawer / Modal */}
-      {selectedCountry && (
-        <CountryPreview country={selectedCountry} />
-      )}
+      {/* Step indicators */}
+      <div className="dest-indicators">
+        {destinations.map((_, index) => (
+          <button
+            key={index}
+            className={`dest-dot ${index === activeIndex ? 'active' : ''}`}
+            onClick={() => handleCardClick(index)}
+            aria-label={`Go to destination ${index + 1}`}
+          />
+        ))}
+      </div>
     </section>
   );
 }

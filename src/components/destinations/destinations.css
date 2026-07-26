@@ -88,3 +88,221 @@
 .dest-card:hover {
   box-shadow: 0 20px 50px rgba(10, 61, 145, 0.3);
 }
+
+/* ═══════════════════════════════════════════════
+   Interactive Selector — Scroll-Driven Card Expansion
+   ═══════════════════════════════════════════════ */
+
+.dest-selector-wrap {
+  min-height: 420px;
+}
+
+.dest-selector-track {
+  display: flex;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  height: 420px;
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* ── Individual Cards ── */
+.dest-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #292929;
+  will-change: flex-grow;
+  transition: flex-grow 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  flex: 1 1 0%;
+  min-width: 60px;
+  min-height: 100px;
+  background-color: #18181b;
+}
+
+.dest-card.active {
+  flex: 7 1 0%;
+  border-color: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* ── Background Image ── */
+.dest-card-bg {
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dest-card.active .dest-card-bg {
+  transform: scale(1.05);
+}
+
+/* ── Shadow Overlay ── */
+.dest-card-shadow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  pointer-events: none;
+  transition: box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dest-card.active .dest-card-shadow {
+  box-shadow: inset 0 -120px 120px -80px #000;
+}
+
+.dest-card:not(.active) .dest-card-shadow {
+  box-shadow: inset 0 -120px 0px -120px #000;
+}
+
+/* ── Icon Circle ── */
+.dest-card-icon {
+  position: absolute;
+  bottom: 20px;
+  left: 12px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(32, 32, 32, 0.85);
+  backdrop-filter: blur(10px);
+  border: 2px solid #444;
+  flex-shrink: 0;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.dest-card.active .dest-card-icon {
+  border-color: #D4AF37;
+  background: rgba(10, 61, 145, 0.6);
+}
+
+/* ── Info Panel ── */
+.dest-card-info {
+  position: relative;
+  z-index: 2;
+  padding: 16px 16px 20px 72px;
+  color: #fff;
+  opacity: 0;
+  transform: translateX(25px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+
+.dest-card.active .dest-card-info {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dest-card-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-bottom: 2px;
+}
+
+.dest-card-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+  max-width: 380px;
+  margin-bottom: 8px;
+}
+
+.dest-card-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dest-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── Bottom Dot Indicators ── */
+.dest-indicators {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.dest-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 0;
+}
+
+.dest-dot.active {
+  background: #D4AF37;
+  border-color: #D4AF37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+  width: 28px;
+  border-radius: 5px;
+}
+
+.dest-dot:hover {
+  border-color: #D4AF37;
+}
+
+/* ── Mobile Stack ── */
+@media (max-width: 768px) {
+  .dest-selector-wrap {
+    min-height: auto;
+    padding: 0 16px 40px;
+  }
+
+  .dest-selector-track {
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
+  }
+
+  .dest-card {
+    flex: none !important;
+    width: 100%;
+    min-height: 160px;
+    border-radius: 16px;
+    border-color: #333;
+  }
+
+  .dest-card.active {
+    flex: none !important;
+    min-height: 240px;
+    border-color: #D4AF37;
+  }
+
+  .dest-card-info {
+    opacity: 1;
+    transform: none;
+    padding: 16px 16px 20px 72px;
+  }
+
+  .dest-indicators {
+    display: none;
+  }
+}
