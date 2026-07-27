@@ -1,5 +1,6 @@
 @import "../styles/design-tokens.css";
 @import "../styles/base.css";
+@import "tailwindcss";
 
 /* ── Backward-compatible aliases for existing component CSS ── */
 :root {
