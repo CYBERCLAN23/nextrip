@@ -3,6 +3,8 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/footer/Footer";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { LenisProvider } from "@/providers/LenisProvider";
+import { PageTransitionWrap } from "@/hooks/usePageTransition";
 import { ScrollAnimations } from "@/components/scroll/ScrollAnimations";
 
 export const metadata: Metadata = {
@@ -38,10 +40,14 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider defaultMode="system" attribute="class">
-          <ScrollAnimations />
-          <Navbar />
-          {children}
-          <Footer />
+          <LenisProvider>
+            <PageTransitionWrap>
+              <ScrollAnimations />
+              <Navbar />
+              {children}
+              <Footer />
+            </PageTransitionWrap>
+          </LenisProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,33 +1,86 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { oswald } from "@/lib/fonts";
 import { CaretDown } from '@phosphor-icons/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextReveal } from '@/components/ui/text-reveal';
+import { FloatingOrbs } from '@/components/ui/FloatingOrbs';
+import { organicBounce } from '@/lib/anime';
 import './hero.css';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+/* ─── Video config ─────────────────────────────────────────────────── */
+const VIDEO_SRC =
+  "https://stream.mux.com/2S00piWWpXmZIsFF4RdUmCNVepGsDgQpf/high.mp4";
+const VIDEO_POSTER =
+  "https://cdn.coverr.co/videos/coverr-students-walking-to-class-8974/thumbnail?width=1920";
+
+/* ─── Hero ──────────────────────────────────────────────────────────── */
 
 const Hero = () => {
   const [isVideoPaused, setIsVideoPaused] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
   const [headlineReady, setHeadlineReady] = useState(false);
+  const [hasVideoError, setHasVideoError] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const bgMediaRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const tiltRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
 
-  // Trigger TextReveal after a short mount delay
+  // Trigger TextReveal & anime.js micro-interaction after mount
   useEffect(() => {
     const t = setTimeout(() => setHeadlineReady(true), 200);
-    return () => clearTimeout(t);
+
+    // Anime.js spring bounce on the scroll indicator (decorative, fire-and-forget)
+    const animeTimer = setTimeout(() => {
+      organicBounce('.hero-scroll', {
+        duration: 1200,
+        stiffness: 160,
+        damping: 12,
+      });
+    }, 1200);
+
+    return () => {
+      clearTimeout(t);
+      clearTimeout(animeTimer);
+    };
   }, []);
+
+  // Video ended → GSAP crossfade to static banner image
+  const handleVideoEnded = useCallback(() => {
+    if (videoEnded) return;
+    setVideoEnded(true);
+
+    gsap.to(videoRef.current, {
+      opacity: 0,
+      duration: 1.6,
+      ease: 'power2.inOut',
+      onComplete: () => {
+        if (videoRef.current) {
+          videoRef.current.style.display = 'none';
+        }
+      },
+    });
+  }, [videoEnded]);
+
+  // Video error → immediately fall back to poster
+  const handleVideoError = useCallback(() => {
+    if (videoEnded || hasVideoError) return;
+    setHasVideoError(true);
+    setVideoEnded(true);
+
+    if (videoRef.current) {
+      videoRef.current.style.display = 'none';
+    }
+  }, [videoEnded, hasVideoError]);
 
   // 1. GSAP ScrollTrigger Entrance & Exit Animations
   useEffect(() => {
@@ -133,9 +186,27 @@ const Hero = () => {
 
   return (
     <section ref={sectionRef} className="hero relative overflow-hidden" aria-label="Hero">
+      {/* Floating 3D Orbs — decorative Three.js scene behind everything */}
+      <FloatingOrbs className="absolute inset-0 z-[1]" canvasOpacity={0.3} count={8} color="#00D9FF" accentColor="#D4AF37" />
+
       {/* Background Media Container */}
       <div ref={bgRef} className="hero-bg">
-        <div ref={bgMediaRef} className="hero-bg-media" />
+        <div ref={bgMediaRef} className="hero-bg-media">
+          {/* Hero video — plays once, then GSAP-fades to static banner image below */}
+          <video
+            ref={videoRef}
+            className="hero-video"
+            src={VIDEO_SRC}
+            poster={VIDEO_POSTER}
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            onEnded={handleVideoEnded}
+            onError={handleVideoError}
+            aria-hidden="true"
+          />
+        </div>
         <div className="hero-overlay" data-hero-overlay />
       </div>
 
@@ -190,8 +261,25 @@ const Hero = () => {
             <CaretDown size={24} weight="bold" color="#ffffff" />
           </div>
 
-          <button className="hero-pause" onClick={() => setIsVideoPaused(!isVideoPaused)}>
-            {isVideoPaused ? 'play video' : 'pause video'}
+          <button
+            className="hero-pause"
+            onClick={() => {
+              const video = videoRef.current;
+              if (!video) return;
+              if (video.paused) {
+                video.play().catch(() => {
+                  setHasVideoError(true);
+                  setVideoEnded(true);
+                });
+                setIsVideoPaused(false);
+              } else {
+                video.pause();
+                setIsVideoPaused(true);
+              }
+            }}
+            disabled={videoEnded || hasVideoError}
+          >
+            {videoEnded ? 'explore' : isVideoPaused ? 'play video' : 'pause video'}
           </button>
         </footer>
       </div>

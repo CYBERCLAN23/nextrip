@@ -5,6 +5,7 @@ import { oswald } from "@/lib/fonts";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, ShieldCheck, CheckCircle, CalendarCheck, PaperPlaneTilt } from '@phosphor-icons/react';
+import { FloatingOrbs } from '@/components/ui/FloatingOrbs';
 import './cta.css';
 
 if (typeof window !== 'undefined') {
@@ -105,6 +106,9 @@ export function CTASection() {
       onMouseLeave={handleMouseLeave}
       data-animate-section
     >
+      {/* Floating 3D Orbs — decorative Three.js scene */}
+      <FloatingOrbs className="absolute inset-0 z-0" canvasOpacity={0.35} count={10} />
+
       {/* Background Radial Glow & Noise */}
       <div className="cta-bg-overlay" />
 

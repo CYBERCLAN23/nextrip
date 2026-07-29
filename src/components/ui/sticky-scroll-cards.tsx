@@ -22,7 +22,6 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import ReactLenis from "lenis/react";
 import { useRef, useState, useEffect } from "react";
 
 /* ─── Public types ─────────────────────────────────────────────────── */
@@ -250,11 +249,5 @@ export function StickyScrollCards({
     return content;
   }
 
-  return reduceMotion ? (
-    content
-  ) : (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
-      {content}
-    </ReactLenis>
-  );
+  return content;
 }
