@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, BadgeCheck, GraduationCap, Plane, Stamp } from 'lucide-react'
 import { WordsPullUpMultiStyle } from '@/components/ui/WordsPullUp'
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -12,7 +12,8 @@ const FEATURES = [
     number: '01',
     title: 'Scholarship Match.',
     href: '/scholarships',
-    icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171918_4a5edc79-d78f-4637-ac8b-53c43c220606.png&w=1280&q=85',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=70',
+    icon: GraduationCap,
     items: [
       'CSC full-ride and provincial grants',
       'Merit-based tuition waivers',
@@ -24,7 +25,8 @@ const FEATURES = [
     number: '02',
     title: 'Visa Track.',
     href: '/admissions',
-    icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171741_ed9845ab-f5b2-4018-8ce7-07cc01823522.png&w=1280&q=85',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=70',
+    icon: Stamp,
     items: [
       'X1 / X2 document checklists',
       'Embassy-ready dossier',
@@ -35,7 +37,8 @@ const FEATURES = [
     number: '03',
     title: 'Arrival Cover.',
     href: '/contact',
-    icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171809_f56666dc-c099-4778-ad82-9ad4f209567b.png&w=1280&q=85',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=70',
+    icon: Plane,
     items: [
       'Dormitory matching and airport pickup',
       'Local SIM and city orientation',
@@ -49,44 +52,45 @@ export function FeaturesSection() {
     <section
       data-section
       data-section-label="03 — Features"
-      className="relative min-h-screen overflow-hidden bg-black px-4 py-20 font-almarai sm:py-28 md:px-6"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-[#f4f4f4] py-10 font-sans"
     >
-      <div aria-hidden className="bg-noise pointer-events-none absolute inset-0 opacity-[0.15]" />
+      <div
+        aria-hidden
+        className="supergraphic pointer-events-none absolute -right-8 top-6 select-none text-[12rem] text-[#14100a]/[0.04]"
+      >
+        学
+      </div>
 
-      <div className="relative mx-auto max-w-[1400px]">
-        <h2 className="mx-auto max-w-4xl text-center text-xl font-normal sm:text-2xl md:text-3xl lg:text-4xl">
-          <WordsPullUpMultiStyle
-            segments={[
-              {
-                text: 'The full route to your Chinese campus, in one place.',
-                className: 'text-primary',
-              },
-              {
-                text: 'Built for the journey. Powered by documentation.',
-                className: 'text-gray-500',
-              },
-            ]}
-          />
-        </h2>
+      <div className="relative mx-auto w-full max-w-6xl px-6">
+        <div className="mb-10 max-w-2xl">
+          <p className="ledger-label mb-2 text-nx-coral">The route, in one file</p>
+          <h2 className="font-display text-3xl leading-[1.12] text-[#14100a] md:text-4xl">
+            <WordsPullUpMultiStyle
+              segments={[
+                { text: 'The full infrastructure behind every', className: '' },
+                { text: 'admission letter.', className: 'text-nx-coral' },
+              ]}
+            />
+          </h2>
+        </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-3 sm:gap-2 md:grid-cols-2 md:gap-1 lg:h-[480px] lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:h-[480px]">
           <motion.div
-            className="relative min-h-[300px] overflow-hidden rounded-2xl lg:h-full"
+            className="doc-frame relative min-h-[260px] overflow-hidden rounded-2xl lg:h-full"
             initial={{ scale: 0.95, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.7, ease: EASE }}
           >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
+            <img
+              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=70"
+              alt="A student walking across a Chinese university campus"
               className="absolute inset-0 h-full w-full object-cover"
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_133058_0504132a-0cf3-4450-a370-8ea3b05c95d4.mp4"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            <p className="absolute bottom-5 left-5 text-base sm:text-lg" style={{ color: '#E1E0CC' }}>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#14100a]/60 via-transparent to-transparent" />
+            <p className="absolute bottom-5 left-5 flex items-center gap-2 font-display text-base text-[#f4f4f4] sm:text-lg">
+              <BadgeCheck size={18} className="text-nx-coral" />
               Your campus, live.
             </p>
           </motion.div>
@@ -94,28 +98,41 @@ export function FeaturesSection() {
           {FEATURES.map((f, i) => (
             <motion.div
               key={f.number}
-              className="relative flex min-h-[380px] flex-col justify-between rounded-2xl bg-[#212121] p-6 lg:h-full"
+              className="doc-frame group relative flex min-h-[380px] flex-col justify-between rounded-2xl p-5 lg:h-full"
               initial={{ scale: 0.95, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.7, delay: (i + 1) * 0.15, ease: EASE }}
             >
               <div>
-                <img
-                  src={f.icon}
-                  alt=""
-                  loading="lazy"
-                  className="mb-5 h-10 w-10 rounded-lg sm:h-12 sm:w-12"
-                />
-                <p className="mb-2 text-xs text-primary/70">{f.number}</p>
-                <h3 className="mb-5 text-xl font-normal sm:text-2xl" style={{ color: '#E1E0CC' }}>
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="inline-grid h-10 w-10 place-items-center rounded-lg bg-[#14100a]/[0.06] text-nx-coral">
+                    <f.icon size={18} />
+                  </span>
+                  <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-[#14100a]/40">
+                    {f.number} / 03
+                  </span>
+                </div>
+
+                <div className="relative mb-4 h-24 overflow-hidden rounded-xl">
+                  <img
+                    src={f.image}
+                    alt=""
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#14100a]/30 to-transparent" />
+                </div>
+
+                <h3 className="mb-4 font-display text-lg leading-snug text-[#14100a]">
                   {f.title}
                 </h3>
-                <ul className="space-y-3">
+
+                <ul className="space-y-2.5">
                   {f.items.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
-                      <Check size={15} className="mt-0.5 shrink-0 text-primary" />
-                      <span className="text-xs text-gray-400 sm:text-sm">{item}</span>
+                      <BadgeCheck size={15} className="mt-0.5 shrink-0 text-nx-coral" />
+                      <span className="text-xs text-[#14100a]/70 sm:text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -123,14 +140,18 @@ export function FeaturesSection() {
 
               <Link
                 href={f.href}
-                className="mt-8 inline-flex items-center gap-2 text-xs text-primary/80 transition-colors hover:text-primary sm:text-sm"
+                className="mt-6 inline-flex items-center gap-2 text-xs font-semibold text-[#14100a] transition-colors group-hover:text-nx-coral sm:text-sm"
               >
                 Learn more
-                <ArrowRight size={14} className="-rotate-45" />
+                <ArrowRight size={14} className="-rotate-45 transition-transform duration-300 group-hover:-rotate-0" />
               </Link>
             </motion.div>
           ))}
         </div>
+
+        <p className="mt-8 ledger-label text-[#5f594d]">
+          REC. 03 · THE ROUTE · SCHOLARSHIPS · VISA · ARRIVAL
+        </p>
       </div>
     </section>
   )
