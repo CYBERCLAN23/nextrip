@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -13,11 +13,29 @@ const LINKS = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="absolute top-0 left-0 z-10 w-full font-figtree text-[#f4f4f4]">
-      <div className="mx-auto max-w-[1340px] px-[15px] py-9 md-tablet:px-[18px] md-tablet:py-[30px]">
+    <header
+      className={`fixed top-0 left-0 z-50 w-full font-figtree text-[#f4f4f4] transition-[padding,background-color,box-shadow,border-color] duration-500 ease-spring ${
+        scrolled
+          ? 'border-b border-white/10 bg-[#0a0f20]/80 shadow-[0_16px_48px_rgba(0,0,0,0.5)] backdrop-blur-xl'
+          : 'border-b border-transparent bg-transparent'
+      }`}
+    >
+      <div
+        className={`mx-auto max-w-[1340px] px-[15px] transition-[padding] duration-500 ease-spring md-tablet:px-[18px] ${
+          scrolled ? 'py-4 md-tablet:py-4' : 'py-9 md-tablet:py-[30px]'
+        }`}
+      >
         <div className="flex items-center justify-between gap-4">
           {/* Brand — home */}
           <Link
@@ -65,18 +83,18 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile CSS-grid menu — full-bleed background */}
+      {/* Mobile CSS-grid menu — floating panel detached from the hero */}
       <div
-        className={`grid transition-[grid-template-rows] duration-[420ms] ease-spring mobile:grid hidden ${
-          menuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+        className={`grid transition-[grid-template-rows,opacity] duration-[420ms] ease-spring mobile:grid hidden ${
+          menuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
         }`}
       >
         <div className="min-h-0 overflow-hidden">
           <nav
             aria-label="Mobile"
-            className="border-t border-white/10 bg-gradient-to-b from-[#141d3d] to-[#090e1e] shadow-[0_24px_48px_rgba(0,0,0,0.45)]"
+            className="mx-[15px] mt-3 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-[#151f42]/95 to-[#090e1e]/95 shadow-[0_32px_64px_rgba(0,0,0,0.55)] backdrop-blur-xl"
           >
-            <div className="mx-auto flex w-full max-w-[1340px] flex-col gap-6 px-[18px] pt-7 pb-6">
+            <div className="mx-auto flex w-full max-w-[1340px] flex-col gap-6 px-6 pt-7 pb-6">
               {LINKS.map((l) => {
                 const active = pathname === l.href
                 return (
