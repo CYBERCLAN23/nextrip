@@ -63,15 +63,20 @@ const Navbar = () => {
             {menuOpen ? 'Close' : 'Menu'}
           </button>
         </div>
+      </div>
 
-        {/* Mobile CSS-grid menu */}
-        <div
-          className={`grid transition-[grid-template-rows] duration-[420ms] ease-spring mobile:grid hidden ${
-            menuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-          }`}
-        >
-          <div className="min-h-0 overflow-hidden">
-            <nav aria-label="Mobile" className="flex flex-col gap-6 pt-7 pb-5">
+      {/* Mobile CSS-grid menu — full-bleed background */}
+      <div
+        className={`grid transition-[grid-template-rows] duration-[420ms] ease-spring mobile:grid hidden ${
+          menuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <nav
+            aria-label="Mobile"
+            className="border-t border-white/10 bg-gradient-to-b from-[#141d3d] to-[#090e1e] shadow-[0_24px_48px_rgba(0,0,0,0.45)]"
+          >
+            <div className="mx-auto flex w-full max-w-[1340px] flex-col gap-6 px-[18px] pt-7 pb-6">
               {LINKS.map((l) => {
                 const active = pathname === l.href
                 return (
@@ -91,8 +96,8 @@ const Navbar = () => {
                   </Link>
                 )
               })}
-            </nav>
-          </div>
+            </div>
+          </nav>
         </div>
       </div>
     </header>
