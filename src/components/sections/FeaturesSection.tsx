@@ -12,7 +12,7 @@ const FEATURES = [
     number: '01',
     title: 'Scholarship Match.',
     href: '/scholarships',
-    icon: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=400&q=70',
+    icon: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=400&q=70',
     items: [
       'CSC full-ride and provincial grants',
       'Merit-based tuition waivers',
@@ -24,7 +24,7 @@ const FEATURES = [
     number: '02',
     title: 'Visa Track.',
     href: '/admissions',
-    icon: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&q=70',
+    icon: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=70',
     items: [
       'X1 / X2 document checklists',
       'Embassy-ready dossier',
@@ -35,7 +35,7 @@ const FEATURES = [
     number: '03',
     title: 'Arrival Cover.',
     href: '/contact',
-    icon: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=400&q=70',
+    icon: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=400&q=70',
     items: [
       'Dormitory matching and airport pickup',
       'Local SIM and city orientation',
