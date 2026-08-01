@@ -12,7 +12,7 @@ const VIDEOS = [
 const ROUTES = [
   { id: '01', label: 'Dakar → Beijing' },
   { id: '02', label: 'Lagos → Shanghai' },
-  { id: '03', label: 'Accra → Hangzhou' },
+  { id: '03', label: 'Yaoundé → Hangzhou' },
 ]
 
 export function HeroSection() {
@@ -26,6 +26,14 @@ export function HeroSection() {
     vids.forEach((v) => {
       v.play().catch(() => {})
     })
+  }, [activeIndex])
+
+  // Auto-cycle departure routes; reset the timer on manual selection
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setActiveIndex((prev) => (prev + 1) % ROUTES.length)
+    }, 3500)
+    return () => clearTimeout(t)
   }, [activeIndex])
 
   useEffect(() => {
