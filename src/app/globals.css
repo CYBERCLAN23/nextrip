@@ -1014,7 +1014,6 @@ button, a {
 /* Nav link underline — slides in from the right on hover */
 .nav-link-underline {
   position: relative;
-  display: inline-block;
   text-decoration: none;
 }
 .nav-link-underline::after {
