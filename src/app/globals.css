@@ -983,6 +983,21 @@ button, a {
 }
 
 /* ─── PROMPT HERO / NAV (Viktor recreation — NexTrip content) ─── */
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 @keyframes videoFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
