@@ -60,6 +60,11 @@
   /* Prompt hero world — Figtree grotesk, spring easing */
   --font-figtree: 'Figtree', 'Noto Serif SC', sans-serif;
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Prisma world — Almarai default, Instrument Serif italic accents, warm cream on black */
+  --font-almarai: 'Almarai', 'Noto Serif SC', sans-serif;
+  --font-instrument: 'Instrument Serif', 'Noto Serif SC', serif;
+  --color-primary: #dedbc8;
 }
 
 /* Prompt-style named breakpoints (max-width based) */
@@ -1097,4 +1102,12 @@ html.lenis body {
   [data-hero-reveal="button"].is-visible {
     animation: hero-reveal-up 0.9s var(--ease-spring) 0.08s both;
   }
+}
+
+/* Prisma world — film-grain noise (SVG feTurbulence data-URI), cream on black */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

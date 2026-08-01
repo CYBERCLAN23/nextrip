@@ -1,6 +1,6 @@
 import { HeroSection } from '@/components/sections/HeroSection'
-import { NetworkSection } from '@/components/sections/NetworkSection'
-import { NexTripJourney } from '@/components/sections/NexTripJourney'
+import { AboutSection } from '@/components/sections/AboutSection'
+import { FeaturesSection } from '@/components/sections/FeaturesSection'
 import { ServicesSection } from '@/components/sections/ServicesSection'
 import { HowItWorksSection } from '@/components/sections/HowItWorksSection'
 import { UniversitiesSection } from '@/components/sections/UniversitiesSection'
@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <NetworkSection />
-      <NexTripJourney />
+      <AboutSection />
+      <FeaturesSection />
       <ServicesSection />
       <HowItWorksSection />
       <UniversitiesSection />
