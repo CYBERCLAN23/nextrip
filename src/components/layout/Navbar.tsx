@@ -19,6 +19,15 @@ const Navbar = () => {
     <header className="absolute top-0 left-0 z-10 w-full font-figtree text-[#f4f4f4]">
       <div className="mx-auto max-w-[1340px] px-[15px] py-9 md-tablet:px-[18px] md-tablet:py-[30px]">
         <div className="flex items-center justify-between gap-4">
+          {/* Brand — home */}
+          <Link
+            href="/"
+            aria-label="NexTrip — home"
+            className="nav-link-underline flex items-baseline gap-1.5 text-sm font-semibold uppercase leading-4 tracking-[-0.14px]"
+          >
+            NexTrip<span className="text-[#F598F2]">.</span>
+          </Link>
+
           {/* Desktop / tablet links */}
           <nav aria-label="Primary" className="flex items-center gap-6 md-tablet:gap-4 mobile:hidden">
             {LINKS.map((l) => {
