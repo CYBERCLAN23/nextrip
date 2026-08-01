@@ -19,7 +19,7 @@ function ScrollRevealParagraph({ text }: { text: string }) {
   return (
     <p
       ref={ref}
-      className="mx-auto max-w-2xl text-xs leading-relaxed text-[#DEDBC8] sm:text-sm md:text-base"
+      className="mx-auto max-w-2xl text-xs leading-relaxed text-[#14100a]/70 sm:text-sm md:text-base"
     >
       {text.split('').map((ch, i) => (
         <AnimatedLetter key={i} char={ch} index={i} total={total} progress={scrollYProgress} />
@@ -33,16 +33,16 @@ export function AboutSection() {
     <section
       data-section
       data-section-label="02 — About"
-      className="relative bg-black px-4 py-20 font-almarai sm:py-28 md:px-6"
+      className="relative bg-[#f4f4f4] px-4 py-20 font-almarai sm:py-28 md:px-6"
     >
-      <div className="mx-auto max-w-6xl rounded-[2rem] bg-[#101010] px-6 py-16 text-center sm:px-12 sm:py-24">
-        <p className="mb-8 text-[10px] uppercase tracking-[0.2em] text-primary sm:text-xs">
+      <div className="mx-auto max-w-6xl rounded-[2rem] bg-white px-6 py-16 text-center sm:px-12 sm:py-24">
+        <p className="mb-8 text-[10px] uppercase tracking-[0.2em] text-[#c93a2e] sm:text-xs">
           Study in China, clarified
         </p>
 
         <h2
           className="mx-auto max-w-3xl text-3xl leading-[0.95] sm:text-4xl sm:leading-[0.9] md:text-5xl lg:text-6xl xl:text-7xl"
-          style={{ color: '#E1E0CC' }}
+          style={{ color: '#14100a' }}
         >
           <WordsPullUpMultiStyle
             segments={[
