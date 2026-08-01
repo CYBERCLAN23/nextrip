@@ -17,31 +17,16 @@ const ROUTES = [
 
 export function HeroSection() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [srcs, setSrcs] = useState<string[]>([])
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    let cancelled = false
-    const load = async () => {
-      const results = await Promise.all(
-        VIDEOS.map(async (src) => {
-          try {
-            const res = await fetch(src)
-            if (!res.ok) throw new Error(String(res.status))
-            const blob = await res.blob()
-            return URL.createObjectURL(blob)
-          } catch {
-            return src
-          }
-        })
-      )
-      if (!cancelled) setSrcs(results)
-    }
-    load()
-    return () => {
-      cancelled = true
-    }
-  }, [])
+    const section = sectionRef.current
+    if (!section) return
+    const vids = Array.from(section.querySelectorAll('video'))
+    vids.forEach((v) => {
+      v.play().catch(() => {})
+    })
+  }, [activeIndex])
 
   useEffect(() => {
     const section = sectionRef.current
@@ -83,7 +68,7 @@ export function HeroSection() {
             loop
             playsInline
             preload="auto"
-            src={srcs[i] ?? src}
+            src={src}
             className={`h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out ${
               activeIndex === i ? 'opacity-100' : 'opacity-0'
             }`}
