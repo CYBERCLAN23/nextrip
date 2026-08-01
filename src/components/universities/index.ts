@@ -1,7 +1,0 @@
-export { UniversitiesSection } from './UniversitiesSection'
-export { UniversityCard } from './UniversityCard'
-export { UniversityModal } from './UniversityModal'
-export { UniversityCarousel } from './UniversityCarousel'
-export { FilterBar } from './FilterBar'
-export { universities, filterGroups } from './UniversityData'
-export type { University, FilterOption } from './UniversityData'

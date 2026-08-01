@@ -1,6 +1,0 @@
-export { ServicesSection } from './ServicesSection'
-export { ServicesHeader } from './ServicesHeader'
-export { ServiceGrid } from './ServiceGrid'
-export { ServiceCard } from './ServiceCard'
-export { services } from './ServiceData'
-export type { ServiceItem, ServiceIconName } from './ServiceData'

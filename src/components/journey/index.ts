@@ -1,5 +1,0 @@
-export { JourneySection } from './JourneySection'
-export { JourneyHeader } from './JourneyHeader'
-export { JourneyCard } from './JourneyCard'
-export { journeySteps } from './JourneyStep'
-export type { JourneyStepItem, JourneyIcon } from './JourneyStep'
