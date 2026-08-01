@@ -75,20 +75,20 @@ export function HeroSection() {
     >
       {/* Background video layers — crossfade 1200ms, only active layer visible */}
       {VIDEOS.map((src, i) => (
-        <video
-          key={src}
-          aria-hidden="true"
-          tabIndex={-1}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          src={srcs[i] ?? src}
-          className={`video-fade-in absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out ${
-            activeIndex === i ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
+        <div key={src} className="video-fade-in absolute inset-0" aria-hidden="true">
+          <video
+            tabIndex={-1}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            src={srcs[i] ?? src}
+            className={`h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out ${
+              activeIndex === i ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        </div>
       ))}
       <div aria-hidden="true" className="absolute inset-0 z-[1] bg-black/10" />
 
