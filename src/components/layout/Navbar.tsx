@@ -110,8 +110,11 @@ const Navbar = () => {
   return (
     <header
       ref={headerRef}
-      data-visible={visible ? 'true' : 'false'}
-      className="fixed top-0 left-0 z-50 w-full border-b border-[#101010]/10 bg-[#f4f4f4] font-figtree text-[#101010] shadow-[0_1px_0_rgba(16,16,16,0.06)] will-change-transform"
+      className={`fixed top-0 left-0 z-50 w-full font-figtree will-change-transform transition-[background-color,color,border-color,box-shadow] duration-500 ease-spring ${
+        scrolled
+          ? 'border-b border-[#101010]/10 bg-[#f4f4f4] text-[#101010] shadow-[0_1px_0_rgba(16,16,16,0.06)]'
+          : 'border-b border-transparent bg-transparent text-[#f4f4f4] shadow-none'
+      }`}
     >
       <div
         className={`mx-auto max-w-[1340px] px-[15px] transition-[padding] duration-300 md-tablet:px-[18px] ${
@@ -131,7 +134,7 @@ const Navbar = () => {
                   key={i}
                   data-brand-char
                   className="inline-block opacity-0"
-                  style={{ color: i === BRAND.length - 1 ? '#C0109E' : undefined }}
+                  style={{ color: i === BRAND.length - 1 ? (scrolled ? '#C0109E' : '#F598F2') : undefined }}
                 >
                   {ch}
                 </span>
@@ -139,7 +142,7 @@ const Navbar = () => {
               <span
                 ref={caretRef}
                 aria-hidden="true"
-                className="ml-[2px] inline-block w-[2px] translate-y-[2px] bg-[#C0109E]"
+                className={`ml-[2px] inline-block w-[2px] translate-y-[2px] ${scrolled ? 'bg-[#C0109E]' : 'bg-[#F598F2]'}`}
                 style={{ height: '1em', opacity: 0 }}
               />
             </span>
@@ -155,7 +158,9 @@ const Navbar = () => {
                   href={l.href}
                   aria-current={active ? 'page' : undefined}
                   className={`nav-link-underline flex items-baseline gap-1.5 ${
-                    active ? 'is-active text-[#C0109E]' : 'opacity-70 hover:opacity-100 transition-opacity'
+                    active
+                      ? `is-active ${scrolled ? 'text-[#C0109E]' : 'text-[#F598F2]'}`
+                      : `${scrolled ? 'opacity-70' : 'opacity-80'} hover:opacity-100 transition-opacity`
                   }`}
                 >
                   <span className="text-[8px] font-medium uppercase leading-3 tracking-[-0.08px] opacity-60">
