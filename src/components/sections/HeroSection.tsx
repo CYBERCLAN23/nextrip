@@ -4,9 +4,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 
 const VIDEOS = [
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260629_030107_874273ea-684a-4e90-bb96-8fdfde48d53d.mp4',
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260629_032424_3c9c2a9d-807b-4482-80e6-dd6d9dfd4545.mp4',
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260627_094019_4214ea73-b963-46a4-8327-61489192de99.mp4',
+  'https://videos.pexels.com/video-files/3695994/3695994-hd_1920_1080_24fps.mp4',
+  'https://cdn.pixabay.com/video/2020/02/22/32708-394004598_medium.mp4',
+  'https://cdn.pixabay.com/video/2024/06/06/215475_medium.mp4',
 ]
 
 const ROUTES = [
@@ -90,7 +90,7 @@ export function HeroSection() {
           />
         </div>
       ))}
-      <div aria-hidden="true" className="absolute inset-0 z-[1] bg-black/10" />
+      <div aria-hidden="true" className="absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-black/20 to-black/40" />
 
       {/* Hero content */}
       <div className="relative z-[2] mx-auto flex min-h-screen w-full max-w-[1340px] flex-col items-end justify-end gap-[150px] px-[15px] pt-[190px] mobile:gap-[72px] mobile:items-start mobile:justify-end mobile:px-[18px] mobile:pt-[140px]">
@@ -104,10 +104,10 @@ export function HeroSection() {
                 onClick={() => setActiveIndex(i)}
                 aria-pressed={activeIndex === i}
                 className={`flex items-baseline gap-3 text-left transition-opacity duration-300 cursor-pointer ${
-                  activeIndex === i ? 'opacity-100' : 'opacity-55 hover:opacity-75'
+                  activeIndex === i ? 'opacity-100' : 'opacity-75 hover:opacity-100'
                 }`}
               >
-                <span className="text-[8px] font-medium uppercase tracking-[0.08em] text-[#f4f4f4]/60">
+                <span className="text-[8px] font-medium uppercase tracking-[0.08em] text-[#f4f4f4]/85">
                   {r.id} /
                 </span>
                 <span className="role-link text-xl font-medium uppercase tracking-[-0.02em] md-tablet:text-lg mobile:text-base">
@@ -143,7 +143,7 @@ export function HeroSection() {
           </h1>
 
           <div className="flex flex-1 flex-col items-start gap-6 pl-[50px] md-tablet:pl-[24px] mobile:pl-0 mobile:max-w-[420px]">
-            <p data-hero-reveal="up" className="max-w-[420px] text-sm leading-relaxed text-[#f4f4f4]/80 md-tablet:text-sm mobile:text-xs">
+            <p data-hero-reveal="up" className="max-w-[420px] text-[15px] leading-relaxed text-[#f4f4f4] md-tablet:text-sm mobile:text-xs mobile:leading-relaxed mobile:text-[#f4f4f4]/90">
               We chart your route from Africa to Chinese campuses — university, scholarship, visa,
               arrival — documented and stamped at every milestone.
             </p>
