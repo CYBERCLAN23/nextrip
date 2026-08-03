@@ -25,7 +25,7 @@ export function CtaSection() {
     <section
       ref={sectionRef}
       data-section
-      data-section-label="08 — Begin"
+      data-section-label="09 — Begin"
       className="relative bg-[#f4f4f4] overflow-hidden min-h-screen flex flex-col justify-center py-10"
     >
       <div aria-hidden className="supergraphic absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] md:text-[28rem] text-[#14100a]/[0.05] select-none pointer-events-none">
@@ -69,7 +69,7 @@ export function CtaSection() {
         </div>
 
         <p className="mt-8 ledger-label text-[#5f594d]">
-          REC. 08 · DEPARTURE · 2000+ STUDENTS SEALED
+          REC. 09 · DEPARTURE · 2000+ STUDENTS SEALED
         </p>
       </div>
     </section>
