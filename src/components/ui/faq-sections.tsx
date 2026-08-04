@@ -106,15 +106,15 @@ export function FaqSections({ faqs, activeIndex, onSelect }: FaqSectionsProps) {
                 id={contentId}
                 role="region"
                 aria-label={faq.question}
-                className={`overflow-hidden transition-all duration-500 ease-out ${
-                  open
-                    ? "max-h-[300px] opacity-100 translate-y-0"
-                    : "max-h-0 opacity-0 -translate-y-2"
+                className={`grid transition-[grid-template-rows,opacity,transform] duration-500 ease-out ${
+                  open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                 }`}
               >
-                <p className="max-w-[65ch] pb-5 pr-2 pl-8 pt-1 text-sm leading-relaxed text-[var(--color-rr-ink-2)] md:text-base">
-                  {faq.answer}
-                </p>
+                <div className="overflow-hidden">
+                  <p className="max-w-[65ch] pb-5 pr-2 pl-8 pt-1 text-sm leading-relaxed text-[var(--color-rr-ink-2)] md:text-base">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
             </div>
           );
